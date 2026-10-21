@@ -35,14 +35,14 @@ MITRE_ATT&CK/
 ├── 03_TES与IQI评分细则.md
 ├── 04_官方FAQ.md
 ├── 05_结果解读方法与待核实清单.md
-└── 原文资料/                           存放官方原文（网页存档 / PDF），待补充
+└── 原文资料/                           官方原文（PDF + 纯文本，2026-10-21 抓取）
 ```
 
 ## 四、官方链接
 
 - [1] https://evals.mitre.org/enterprise/er8/
 - [2] https://evals.mitre.org/methodology-overview
-- [3] 评分细则：见 [1] 与 [2] 页面（独立文档链接待确认）
-- [4] FAQ：evals.mitre.org（具体页面链接待确认）
+- [3] https://evals.mitre.org/methodology-specification/ （完整方法规范，含 TES / DQI / PQI / IQI 评分细则）
+- [4] https://evals.mitre.org/FAQ/
 - 首页：https://evals.mitre.org/
 - 上一轮 ER7（2025）：https://evals.mitre.org/enterprise/er7

@@ -1,0 +1,1841 @@
+来源 URL: https://evals.mitre.org/enterprise/er8/
+抓取时间: 2026-10-21T07:00:09.376Z
+
+
+==================== 标签页: SCENARIO 1 ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Enterprise
+>
+Enterprise 2026
+🟠 Registration Now Closed for Enterprise 2026
+ENTERPRISE 2026 · EVALUATION OVERVIEW
+THE LEADING INDEPENDENT
+SECURITY EVALUATION
+
+ATT&CK Evaluations Enterprise 2026 tests how your solution detects and stops modern adversary behaviors — using real tradecraft, a unified scoring framework, and no vendor-controlled results. Registration is now closed.
+
+New: Total Evaluation Score (TES)
+EDR + XDR + MDR + AI SOC unified
+Results published December 2026
+Application deadline April 30, 2026
+Participation Information
+Methodology Overview
+Citation Policy
+ON THIS PAGE
+Why Participate
+What's New in 2026
+Evaluation Scenarios
+Threat Overview
+Scenario Representation
+Evaluation Intent
+Technique Scope
+What Gets Evaluated
+Test Environment
+Participation Requirements
+How to Prepare
+After You Sign
+Timeline
+FAQ · Enterprise 2026
+Contact & Apply
+WHY PARTICIPATE
+Join the leading independent evaluation of enterprise security solutions
+
+ATT&CK Evaluations are different from vendor-run tests, analyst reports, or ad-hoc pentests. They're the only independent, behavior-based evaluation that tests how solutions detect and stop real adversary tradecraft — with full telemetry published openly.
+
+📊
+Credible Third-Party Validation
+
+MITRE is the most trusted name in threat intelligence. An ATT&CK Evaluations result is recognized by CISOs and security teams worldwide as independent and unbiased evidence of product quality.
+
+🔍
+Real Gap Identification
+
+Per-technique DC and PC results show your engineering team exactly where coverage gaps exist — against Critical and High-priority techniques, not just overall averages. The most actionable product roadmap data available.
+
+🏆
+Differentiated in the Market
+
+Enterprise 2026 introduces TES — a unified quantitative score — for the first time. Early adopters of the new framework establish credibility with buyers before the methodology becomes the market standard.
+
+💡
+
+Note on competitive context: ATT&CK Evaluations do not rank vendors or declare winners. Results show what was achieved against specific adversary scenarios and how. Customers use the full breakdown — TES, modifier, per-technique results — to assess fit for their environment. Participation demonstrates commitment to transparency.
+
+NEW FOR 2026
+What's New in Enterprise 2026
+Total Evaluation Score (TES) Framework
+
+For the first time, ATT&CK Evaluations introduces a unified quantitative scoring system. TES combines detection quality (DQI) and protection quality (PQI) into a single comparable metric on a 0–2.0 scale. This moves beyond binary "detected / not detected" results to measure alert quality, analyst precision, platform speed, block timing, and false positive performance — all weighted by technique criticality.
+
+A complete methodology document with full TES scoring components is available at Full Methodology Specification.
+
+Transparent Source-of-Action Attribution
+
+Every TES score is published with a modifier showing who or what produced the quality:
+
+MODIFIER	WHO OPERATES IT	OPERATIONAL MODEL
+(P) Platform	Fully automated platform	Customer SOC team investigates from automated alerts
+(P/AI) Platform + AI	AI-augmented automation	AI enriches alerts; analysts make final decisions
+(S/H) Service + Humans	MDR/MSSP human analysts	Analysts validate, enrich, and escalate complete incidents
+(S/AI) Service + AI SOC	Autonomous AI operations	AI performs analyst-equivalent investigation and recommendations
+Mixed	Hybrid	Combination of platform automation, human analysts, and AI
+Unified Platform and Managed Services Evaluation
+
+Enterprise 2026 eliminates the historical separation between "Enterprise" and "Managed Services" rounds. EDR, XDR, MDR, MSSP, SIEM, and AI SOC vendors are all evaluated on the same adversary scenarios using the same quality metrics. Source-of-Action modifiers provide execution transparency without requiring separate tracks.
+
+Vendor Tooling Declaration
+
+All participating vendors must declare product category tags ensuring customers understand exactly what was tested. Tags: EDR, XDR, Cloud Security, Identity Protection, MDR Service, Network Detection, Managed Service / MSSP, SIEM Integration, Endpoint Protection. Multiple tags are permitted.
+
+EVALUATION SCENARIOS
+Threat Context & Scenario Design
+Threat Overview
+
+The 2026 ATT&CK® Evaluations reflect the current enterprise threat landscape, where financially motivated intrusions dominate overall activity and state-sponsored operations continue to pose significant risk — particularly in cloud and infrastructure-focused environments.
+
+Adversaries increasingly rely on abuse of trust rather than software exploitation, leveraging user interaction, valid credentials, and legitimate administrative capabilities to gain and maintain access. These intrusions are characterized by living-off-the-land techniques, minimal bespoke tooling, and execution paths that blend into normal enterprise operations. Effective detection and response therefore depend on behavioral context, correlation across systems, and understanding attacker intent — not isolated indicators.
+
+💰
+Financially Motivated
+Crimeware-as-a-service, double-extortion operations, credential abuse — high-tempo intrusions dominating enterprise incident response
+🏛️
+State-Sponsored
+PRC cyber espionage operations targeting diversified infrastructure — persistent, deliberate, identity-based lateral movement across hybrid environments
+🎭
+Shared Tradecraft
+Both threat types increasingly use living-off-the-land, valid credentials, and legitimate tools — making behavioral correlation the essential detection primitive
+Scenario Representation
+
+The two scenarios together reflect the prevailing threat balance — the majority of enterprise intrusions are cybercriminal in origin, while state-sponsored actors continue to drive innovation in infrastructure exploitation.
+
+SCENARIO 1 · ENDPOINT FOCUSED
+Financially Motivated Tradecraft
+● Registration closed
+
+Crimeware-as-a-Service Operation
+
+This scenario reflects the layered, role-based economy of cybercriminal operations, where specialized actors collaborate across distinct phases of an intrusion without operating as a unified team. It begins with targeted social engineering to harvest credentials, which are then monetized and passed to downstream actors who leverage that access to compromise victim environments and execute on their objectives. Each role in the chain is optimized for results, reflecting how the commoditization of cybercrime has made intrusions faster, harder to attribute, and more accessible to a broader range of adversaries.
+
+Scenario Focus: An endpoint-focused intrusion tracing the crimeware-as-a-service lifecycle, from social engineering-driven credential theft, to environment compromise, lateral movement, data exfiltration, and destructive impact, with living-off-the-land techniques employed throughout to evade detection.
+
+Ideal for: EDR platforms, SIEM integrations, endpoint protection vendors, managed services focused on host-based security
+SCENARIO 2 · ENTERPRISE FOCUSED
+PRC Espionage Group Tradecraft
+● Registration closed
+
+PRC Cyber Espionage Group
+
+A technically advanced PRC cyber-espionage actor that poses a persistent threat to organizations worldwide. The group has operationalized zero-day and n-day vulnerabilities, and exploited internet-facing edge devices and remote access infrastructure to gain footholds. Environmental adaptability, custom payload development, living-off-the-land behaviors, and legitimate cloud services are leveraged to blend into enterprise activity. The group's tradecraft broadly represents how PRC state-sponsored actors operate, sharing tools, techniques, and infrastructure across a well-resourced offensive cyber ecosystem. The convergence complicates attribution and makes the threat relevant to organizations across sectors and geographies.
+
+Scenario Focus: An enterprise-wide, evasive intrusion featuring exploitation of diversified infrastructure, deployment of custom and open-source tooling, and abuse of legitimate cloud services.
+
+Ideal for: XDR platforms, identity protection solutions, MDR/MSSP providers, enterprise-wide visibility offerings
+Evaluation Intent
+
+ATT&CK Evaluations are designed to assess how security platforms and services detect, correlate, and respond to modern, trust-abusing behaviors. The evaluation emphasizes three core capabilities:
+
+BEHAVIOR-BASED DETECTION
+Identifying adversary activity from behavioral patterns rather than signatures or isolated indicators — what the adversary did, not just which tool they used
+MULTI-EVENT CORRELATION
+Connecting related events across time, systems, and domains into coherent attack narratives — reducing analyst burden while improving detection fidelity
+SIGNAL VS. NOISE DISCRIMINATION
+Distinguishing malicious activity from legitimate administrative or user behavior — especially critical where adversaries deliberately blend into normal operations
+Technique Scope
+
+The Technique Scope defines which ATT&CK techniques and sub-techniques are in scope for evaluation and how parent-child relationships are handled during scoring. This structure ensures precise, actionable detections and avoids ambiguity when evaluating security controls against adversary behaviors.
+
+Key principles governing scope interpretation:
+
+CONCEPT	HOW IT WORKS
+Parent techniques	Encompass additional adversary behaviors, implementations, and variations beyond what is captured by any specific sub-technique. When a parent is in scope, the evaluation assesses the broader behavior category.
+Sub-techniques	Provide a more specific, detailed breakdown of particular adversary methods. When a sub-technique is in scope, scoring is evaluated against that specific implementation.
+Scope boundary rule	If an adversary behavior does not fit neatly into a specific sub-technique but aligns with the general concept of the parent, it remains in scope under the parent technique. This prevents adversaries from evading evaluation scope through minor implementation variations.
+🎉
+April 7, 2026 — Technique Reference Release. This section lists techniques and sub-techniques in scope for reference. Final scenario scope is a subset of these techniques. ATT&CK Enterprise v18.1
+SCENARIO 1
+SCENARIO 2
+56 techniques · 13 tactics
+VIEW IN ATT&CK NAVIGATOR ↗
+DOWNLOAD JSON
+OPEN IN ATT&CK ↗
+ALL TACTICS (56)
+Collection
+6
+Command and Control
+2
+Credential Access
+1
+Defense Evasion
+13
+Discovery
+12
+Execution
+4
+Exfiltration
+4
+Impact
+4
+Initial Access
+3
+Lateral Movement
+1
+Persistence
+4
+Privilege Escalation
+2
+Reconnaissance
+0
+COLLECTION
+6 techniques
+T1005
+Data from Local System
+↗
+T1039
+Data from Network Shared Drive
+↗
+T1074.001
+Data Staged: Local Data Staging
+↗
+T1113
+Screen Capture
+↗
+T1115
+Clipboard Data
+↗
+T1119
+Automated Collection
+↗
+▸
+3
+T1560
+Archive Collected Data
+↗
+COMMAND AND CONTROL
+2 techniques
+T1071.001
+Application Layer Protocol: Web Protocols
+↗
+T1105
+Ingress Tool Transfer
+↗
+T1132.001
+Data Encoding: Standard Encoding
+↗
+T1132.002
+Data Encoding: Non-Standard Encoding
+↗
+T1571
+Non-Standard Port
+↗
+T1573.001
+Encrypted Channel: Symmetric Cryptography
+↗
+T1573.002
+Encrypted Channel: Asymmetric Cryptography
+↗
+CREDENTIAL ACCESS
+1 technique
+T1003.001
+OS Credential Dumping: LSASS Memory
+↗
+T1003.005
+OS Credential Dumping: Cached Domain Credentials
+↗
+T1539
+Steal Web Session Cookie
+↗
+T1552.001
+Unsecured Credentials: Credentials In Files
+↗
+T1555.003
+Credentials from Password Stores: Credentials from Web Browsers
+↗
+T1555.004
+Credentials from Password Stores: Windows Credential Manager
+↗
+T1555.005
+Credentials from Password Stores: Password Managers
+↗
+DEFENSE EVASION
+13 techniques
+T1006
+Direct Volume Access
+↗
+▸
+11
+T1027
+Obfuscated Files or Information
+↗
+▸
+4
+T1036
+Masquerading
+↗
+▸
+3
+T1055
+Process Injection
+↗
+T1070.001
+Indicator Removal: Clear Windows Event Logs
+↗
+T1070.003
+Indicator Removal: Clear Command History
+↗
+T1070.004
+Indicator Removal: File Deletion
+↗
+T1070.005
+Indicator Removal: Network Share Connection Removal
+↗
+T1070.009
+Indicator Removal: Clear Persistence
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+T1112
+Modify Registry
+↗
+T1134.001
+Access Token Manipulation: Token Impersonation/Theft
+↗
+T1134.002
+Access Token Manipulation: Create Process with Token
+↗
+T1134.003
+Access Token Manipulation: Make and Impersonate Token
+↗
+T1134.004
+Access Token Manipulation: Parent PID Spoofing
+↗
+T1140
+Deobfuscate/Decode Files or Information
+↗
+T1202
+Indirect Command Execution
+↗
+T1218.005
+System Binary Proxy Execution: Mshta
+↗
+T1218.010
+System Binary Proxy Execution: Regsvr32
+↗
+T1218.011
+System Binary Proxy Execution: Rundll32
+↗
+T1218.013
+System Binary Proxy Execution: Mavinject
+↗
+T1222.001
+File and Directory Permissions Modification: Windows File and Directory Permissions Modification
+↗
+T1480.001
+Execution Guardrails: Environmental Keying
+↗
+T1480.002
+Execution Guardrails: Mutual Exclusion
+↗
+T1484.001
+Domain or Tenant Policy Modification: Group Policy Modification
+↗
+▸
+2
+T1497
+Virtualization/Sandbox Evasion
+↗
+T1553.002
+Subvert Trust Controls: Code Signing
+↗
+T1562.001
+Impair Defenses: Disable or Modify Tools
+↗
+T1562.002
+Impair Defenses: Disable Windows Event Logging
+↗
+T1562.003
+Impair Defenses: Impair Command History Logging
+↗
+T1562.004
+Impair Defenses: Disable or Modify System Firewall
+↗
+T1562.006
+Impair Defenses: Indicator Blocking
+↗
+T1564.001
+Hide Artifacts: Hidden Files and Directories
+↗
+T1564.002
+Hide Artifacts: Hidden Users
+↗
+T1564.003
+Hide Artifacts: Hidden Window
+↗
+T1564.010
+Hide Artifacts: Process Argument Spoofing
+↗
+T1574.001
+Hijack Execution Flow: DLL
+↗
+T1620
+Reflective Code Loading
+↗
+T1622
+Debugger Evasion
+↗
+T1678
+Delay Execution
+↗
+T1679
+Selective Exclusion
+↗
+DISCOVERY
+12 techniques
+T1007
+System Service Discovery
+↗
+T1012
+Query Registry
+↗
+T1018
+Remote System Discovery
+↗
+T1033
+System Owner/User Discovery
+↗
+T1057
+Process Discovery
+↗
+T1069.001
+Permission Groups Discovery: Local Groups
+↗
+T1069.002
+Permission Groups Discovery: Domain Groups
+↗
+T1082
+System Information Discovery
+↗
+T1083
+File and Directory Discovery
+↗
+T1087.001
+Account Discovery: Local Account
+↗
+T1087.002
+Account Discovery: Domain Account
+↗
+T1135
+Network Share Discovery
+↗
+T1217
+Browser Information Discovery
+↗
+T1482
+Domain Trust Discovery
+↗
+T1497.001
+Virtualization/Sandbox Evasion: System Checks
+↗
+T1497.002
+Virtualization/Sandbox Evasion: User Activity Based Checks
+↗
+T1518.001
+Software Discovery: Security Software Discovery
+↗
+T1614.001
+System Location Discovery: System Language Discovery
+↗
+T1622
+Debugger Evasion
+↗
+T1680
+Local Storage Discovery
+↗
+EXECUTION
+4 techniques
+T1047
+Windows Management Instrumentation
+↗
+T1053.005
+Scheduled Task/Job: Scheduled Task
+↗
+▸
+5
+T1059
+Command and Scripting Interpreter
+↗
+T1106
+Native API
+↗
+▸
+3
+T1204
+User Execution
+↗
+T1569.002
+System Services: Service Execution
+↗
+EXFILTRATION
+4 techniques
+T1020
+Automated Exfiltration
+↗
+T1030
+Data Transfer Size Limits
+↗
+T1041
+Exfiltration Over C2 Channel
+↗
+▸
+3
+T1048
+Exfiltration Over Alternative Protocol
+↗
+IMPACT
+4 techniques
+T1486
+Data Encrypted for Impact
+↗
+T1489
+Service Stop
+↗
+T1490
+Inhibit System Recovery
+↗
+T1491.001
+Defacement: Internal Defacement
+↗
+T1529
+System Shutdown/Reboot
+↗
+T1561.001
+Disk Wipe: Disk Content Wipe
+↗
+INITIAL ACCESS
+3 techniques
+▸
+3
+T1078
+Valid Accounts
+↗
+T1133
+External Remote Services
+↗
+T1189
+Drive-by Compromise
+↗
+LATERAL MOVEMENT
+1 technique
+T1021.001
+Remote Services: Remote Desktop Protocol
+↗
+T1021.002
+Remote Services: SMB/Windows Admin Shares
+↗
+T1021.004
+Remote Services: SSH
+↗
+T1021.006
+Remote Services: Windows Remote Management
+↗
+T1550.002
+Use Alternate Authentication Material: Pass the Hash
+↗
+T1550.004
+Use Alternate Authentication Material: Web Session Cookie
+↗
+T1570
+Lateral Tool Transfer
+↗
+PERSISTENCE
+4 techniques
+T1037.001
+Boot or Logon Initialization Scripts: Logon Script (Windows)
+↗
+T1037.003
+Boot or Logon Initialization Scripts: Network Logon Script
+↗
+T1037.005
+Boot or Logon Initialization Scripts: Startup Items
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+▸
+1
+T1098
+Account Manipulation
+↗
+T1112
+Modify Registry
+↗
+T1133
+External Remote Services
+↗
+T1136.001
+Create Account: Local Account
+↗
+T1136.002
+Create Account: Domain Account
+↗
+T1543.003
+Create or Modify System Process: Windows Service
+↗
+T1546.003
+Event Triggered Execution: Windows Management Instrumentation Event Subscription
+↗
+T1547.001
+Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+↗
+T1547.004
+Boot or Logon Autostart Execution: Winlogon Helper DLL
+↗
+T1574.001
+Hijack Execution Flow: DLL
+↗
+PRIVILEGE ESCALATION
+2 techniques
+T1037.001
+Boot or Logon Initialization Scripts: Logon Script (Windows)
+↗
+T1037.003
+Boot or Logon Initialization Scripts: Network Logon Script
+↗
+T1037.005
+Boot or Logon Initialization Scripts: Startup Items
+↗
+▸
+3
+T1055
+Process Injection
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+T1134.001
+Access Token Manipulation: Token Impersonation/Theft
+↗
+T1134.002
+Access Token Manipulation: Create Process with Token
+↗
+T1134.003
+Access Token Manipulation: Make and Impersonate Token
+↗
+T1134.004
+Access Token Manipulation: Parent PID Spoofing
+↗
+T1543.003
+Create or Modify System Process: Windows Service
+↗
+T1546.003
+Event Triggered Execution: Windows Management Instrumentation Event Subscription
+↗
+T1547.001
+Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+↗
+T1547.004
+Boot or Logon Autostart Execution: Winlogon Helper DLL
+↗
+T1548.002
+Abuse Elevation Control Mechanism: Bypass User Account Control
+↗
+T1574.001
+Hijack Execution Flow: DLL
+↗
+RECONNAISSANCE
+0 techniques
+T1592.001
+Gather Victim Host Information: Hardware
+↗
+T1592.002
+Gather Victim Host Information: Software
+↗
+Sub-techniques shown indented. All IDs link to attack.mitre.org. Subject to refinement.
+ATT&CK Enterprise v18
+
+Vendors select Scenario 1, Scenario 2, or both based on product capabilities and target markets. Scoring is independent per scenario.
+
+EVALUATION STRUCTURE
+What Gets Evaluated
+Detections Testing
+
+Protections are disabled so the full adversary attack chain executes. Your solution demonstrates complete visibility. Evaluated on:
+
+DIMENSION	WHAT'S MEASURED	SCORING COMPONENT
+Detection Coverage	Alert quality per ATT&CK technique — does your alert provide technique-specific details, ATT&CK mapping, and all 7 context elements (WHO, WHAT, WHEN, WHERE, HOW, WHY, Recommended Action)?	DC tier → Weighted_DC → DQI
+Detection Precision	Analyst efficiency — finding real threats without false positives, consolidating related activity into actionable cases rather than fragmented alerts	DP → DQI
+Detection Speed	Elapsed time from technique execution to first automated platform alert. Human analyst escalation time is excluded.	DS → DQI
+Protections Testing
+
+Protections are enabled. Tests are stage-gated: once you block, the test ends. Evaluated on:
+
+DIMENSION	WHAT'S MEASURED	SCORING COMPONENT
+Protection Coverage	Block timing in the attack chain (primary) + context quality of the block alert (secondary). Blocking before the first critical stage scores PC-3; blocking at the terminal stage after all critical objectives scores PC-1.	PC tier → Weighted_PC → PQI
+Protection Precision	False positive validation: can you block threats without disrupting legitimate business activity? Each incorrectly blocked benign activity reduces your PP score.	PP → PQI
+False Positive Validation
+
+Both scenarios include dedicated false positive testing with legitimate business activities — IT administration scripts, approved software downloads, remote desktop connections, cloud storage access, network file transfers, and data processing tools. Solutions that over-block benign activity receive lower precision scores that feed directly into PQI.
+
+INFRASTRUCTURE
+Test Environment
+
+Enterprise 2026 runs across two separate ranges — one Detection range and one Protection range that covers both scenarios. Both ranges are deployed together as a part of the Core Baseline Infrastructure (CBI), ensuring fair, repeatable testing across all participants.
+
+Detections Range
+SCENARIOS 1 & 2
+
+Both detection scenarios run on its own dedicated range. Protections are disabled during detection testing to ensure the full attack chain executes and all adversary behaviors are observable.
+
+Scenario 1 — Endpoint Focus (Detections)
+COMPONENT	SPECIFICATION
+Domain Controllers & File Servers	Windows Server 2022
+Web Servers	Windows Server 2022
+Workstations	Windows 11 Enterprise
+Email Infrastructure	Exchange Server 2019
+Network Firewall	pfSense or Open Source
+Network Segmentation	Realistic segmentation — DMZ, internal workstation zones, server zones
+Scenario 2 — Enterprise Focus (Detections)
+
+Includes all Scenario 1 components plus the following extended enterprise attack surface:
+
+COMPONENT	SPECIFICATION
+All Scenario 1 components	Windows Server 2022 domain controllers, file servers, web servers · Windows 11 workstations · Exchange Server · pfSense firewall · network segmentation
+Cloud Infrastructure	AWS (Amazon Web Services)
+Virtual Machines	AWS instances and/or additional virtualization platforms
+SSO / Identity Provider	Authentik (self-hosted IdP) + AWS IAM Identity Center — federated across both AWS organizations
+Edge Devices & Appliances	Network edge devices and appliances
+Linux Systems	Ubuntu 24.04 (Noble Numbat)
+Protections Range
+SCENARIOS 1 & 2
+
+Both the Endpoint and Enterprise scenarios are executed on a single shared Protections range. This range contains the full combined component set spanning both scenarios.
+
+COMPONENT	SPECIFICATION
+Domain Controllers & File Servers	Windows Server 2022
+Web Servers	Windows Server 2022
+Workstations	Windows 11 Enterprise
+Email Infrastructure	Exchange Server 2019
+Network Firewall	pfSense / Open Source
+Network Segmentation	Realistic segmentation — DMZ, internal workstation zones, server zones
+Cloud Infrastructure	AWS (Amazon Web Services)
+Virtual Machines	AWS instances and/or additional virtualization platforms
+SSO / Identity Provider	Authentik (self-hosted IdP) + AWS IAM Identity Center — federated across both AWS organizations
+Edge Devices & Appliances	Network edge devices and appliances
+Linux Systems	Ubuntu 24.04 (Noble Numbat)
+Participant Access & Integration
+
+The Scenario 2 Detection range and the Protections range both span two independent AWS organizations — one representing cloud infrastructure, one simulating on-premises infrastructure. Each has a distinct access model. Your solution must integrate with both to achieve full coverage.
+
+CLOUD COMPONENTS
+AWS Victim Account — IdP-Federated Access
+
+Participants receive account-level access to the victim AWS account(s) representing the cloud environment.
+
+Access is granted through Authentik (self-hosted IdP) federated with AWS IAM Identity Center — not direct IAM credentials
+Integrate your detection solution with in-scope AWS services using the permissions granted through this federation
+Configure detection, logging, and data collection as required by your solution architecture
+Scope limitation: Participants will not have access to AWS Organization-level permissions management. You cannot view or modify Organization-level policies or SCPs.
+ON-PREMISES-SIMULATED COMPONENTS
+Separate AWS Organization — Standard Access Methods
+
+Components simulating on-premises infrastructure are hosted in a separate AWS organization. Participants access these hosts using standard enterprise remote access methods.
+
+Standard access methods provided: OpenVPN, SSH, and RDP to on-premises-simulated hosts
+AWS Traffic Mirroring support is available and can be enabled for network-level telemetry collection — participants may use this capability or bring their own network monitoring approach
+Additional network components may be attached to the range's transit gateway to support participant infrastructure requirements
+If using Traffic Mirroring, configure your integration before your execution week. See AWS Traffic Mirroring documentation for setup details. Contact the evaluation team if you need transit gateway attachment support.
+🏗️
+
+Hybrid architecture: The Scenario 2 Detection range and the Protections range are each hybrid enterprise deployments spanning two independent AWS organizations — one representing cloud-native infrastructure, one simulating on-premises infrastructure. Your solution must integrate with both: cloud-native components via IdP-federated AWS account access, and on-premises-simulated components via standard access methods (OpenVPN, SSH, RDP). Solutions that integrate with only one environment will have coverage gaps against techniques executed in the other.
+
+REQUIREMENTS
+Participation Requirements
+Eligibility
+REQUIREMENT	DETAILS
+General availability	Product must be GA with paying customers at time of evaluation execution
+Technical support capacity	Vendor must be able to provide dedicated technical support during the evaluation period (Aug–Oct 2026)
+Results publication consent	Agreement to public results publication on the ATT&CK Evaluations website in December 2026
+Citation policy compliance	Commitment to follow MITRE citation policy when referencing results in marketing and sales.
+What You Must Provide
+1
+Vendor Tooling Declaration
+Declare applicable product category tags: EDR, XDR, Cloud Security, Identity Protection, MDR Service, Network Detection, Managed Service / MSSP, SIEM Integration, Endpoint Protection. Multiple tags permitted.
+2
+Configuration Documentation
+Document your solution's deployment architecture, configuration settings, and integration requirements within the test environment. Submitted prior to evaluation execution.
+3
+Technical Resource Assignment
+Assign dedicated technical contact(s) who can provide support, answer questions, and assist with integration during the evaluation execution period. Contacts must be reachable within 4 hours during execution weeks.
+4
+Draft Results Review
+Review draft results for technical accuracy before public publication. This is your opportunity to verify configuration and testing correctness. Review window and timeline TBC.
+5
+Citation Policy Compliance
+Follow MITRE citation policy guidelines when referencing results in marketing, sales conversations, and public communications.
+💬
+
+Participation fees & pricing: Cost structure is discussed during the CFP process. Submit the CFP form or schedule a meeting with the ATT&CK Evaluations team to learn more about pricing for your participation model.
+
+📋
+
+Draft results review window: November 9–20, 2026. During this period you may review your draft results for technical accuracy, submit backend detection timestamp data, and flag discrepancies before public publication in December 2026. The dispute process and submission instructions will be communicated during onboarding.
+
+PREPARATION GUIDANCE
+How to Prepare Before Your Evaluation
+
+These preparation steps will materially improve your TES scores. Start before your execution week — some require architecture decisions that take weeks to implement.
+
+Detection Coverage (DC)
+DQI
+
+DC is scored at the behavior level — one DC score per ATT&CK technique regardless of how many alerts you generate.
+
+Ensure alerts include all 7 context elements: WHO, WHAT (ATT&CK mapped), WHEN, WHERE, HOW, WHY, Recommended Action
+DC-3 requires explicit ATT&CK technique mapping — tactic-level only scores DC-2
+Test your alert quality against specific ATT&CK techniques in Scenario 1 before your execution week
+Detection Precision (DP)
+DQI
+
+DP rewards consolidation. One incident case covering 50 behaviors scores far higher than 50 separate cases for the same behaviors.
+
+Configure your correlation rules to consolidate related adversary activity into unified incident cases
+Test false positive rate against the business activity types used in FP validation testing
+Reduce case fragmentation — the case-count penalty is significant
+Detection Speed (DS)
+DQI
+
+DS measures time from technique execution to first automated platform alert. Sub-15-minute = Real-Time tier (score: 1.0).
+
+If you're a cloud platform, measure actual backend detection time vs. UI rendering time — they differ
+Plan to submit backend timestamps during the results review period if UI latency is a factor
+Identify and reduce pipeline bottlenecks (API polling intervals, batch ingestion delays)
+Protection Coverage (PC) & Timing
+PQI
+
+Block timing is the primary PC tier determinant. Blocking before the first critical stage scores PIW 1.0× (maximum); blocking at the terminal stage scores PIW 0.25× (minimum).
+
+Block alerts should also include the 7 context elements — full context at Stage 1–2 → PC-3; partial → PC-2
+If using "observe before block" strategy, document it in advance with supporting telemetry plan
+Test block triggers against the specific technique categories in Scenario 1
+📋
+
+The Full Methodology Specification contains complete scoring formulas, all 7 context element definitions, tier assignment matrices, and the cloud latency timestamp submission process. Reading it before your execution week is the highest-leverage preparation activity.
+
+ONBOARDING PROCESS
+What Happens After You Sign
+1
+Contract Processing & Confirmation
+MITRE confirms receipt of signed contract and provides onboarding documentation. Group 1 lottery participants receive lottery results after March 6 deadline.
+2
+Execution Week Selection
+Group 1 lottery winners select from available execution weeks (preferred order). Standard registration vendors select on first-come, first-served basis after March 7.
+3
+Technical Kickoff — June 2026
+MITRE evaluation team conducts technical kickoff with your assigned technical contacts. Covers environment access, integration requirements, and communication protocols for the evaluation period. Configuration documentation is due
+5 months before your execution week
+.
+4
+Environment Setup, Integration & Execution (Aug–Oct 2026)
+Your assigned execution week runs across four structured phases:
+Week 1–2 — Tool Installation:
+Vendor deploys and configures their solution into the test environment.
+Week 3 — Validation & Training:
+Integration validation, configuration sign-off, and MITRE-led training on the vendor's product to ensure the evaluation team can accurately assess its capabilities.
+Week 4 — Execution:
+Adversary emulation scenarios are executed. Both detection and protection phases run during this week. Your technical contacts are available throughout.
+5
+Draft Results Review — November 9–20, 2026
+MITRE provides draft results for your review. Submit backend detection timestamp data, flag technical discrepancies, and verify configuration accuracy before public publication. MITRE does not change scores based on competitive preference — only technical accuracy corrections are accepted.
+6
+2026 Results & Insights — December 2026
+MITRE announces the completion of the 2026 ATT&CK Evaluations and publishes a public aggregation of insights from across the evaluation cycle. The publication highlights collective findings, defensive trends, and lessons learned while preserving the confidentiality of individual participant results.
+KEY DATES
+Timeline
+Feb 17, 2026
+Call for Participation opens.
+Registration and contract submission begins.
+Closed
+Mar 6, 2026
+Group 1 Lottery deadline (11:59pm ET).
+Submit complete, signed contracts by this date to enter the lottery for preferred execution week selection.
+Closed
+Mar 3, 2026
+Scenario 2 technical specifications published.
+Full infrastructure details, integration requirements, and architecture documentation released.
+Closed
+Mar 7 – Apr 30
+Standard registration window.
+Signed contracts accepted. Execution weeks assigned on first-come, first-served basis.
+Closed
+Apr 30, 2026
+Application deadline.
+No contracts accepted after this date.
+Closed
+Aug – Oct 2026
+Evaluation execution phase.
+Adversary emulation scenarios run across all vendor execution weeks.
+Now
+Nov 9-20 2026
+Draft results review window: November 9–20, 2026.
+Participants review their private draft results, submit backend timestamp data, flag technical discrepancies, and verify configuration accuracy before results are finalized.
+Upcoming
+Dec 2026
+Public results & insights publication.
+MITRE announces completion of the 2026 ATT&CK Evaluations and publishes aggregated insights, trends, and lessons learned from the private evaluations. Individual participants results may remain private.
+Upcoming
+
+Timeline subject to adjustment based on participation volume.
+
+🎯
+
+Group 1 Lottery advantage: Submit a complete, signed contract between February 17 – March 6, 2026 (11:59pm ET) to enter the lottery for preferred execution week selection. Preferred weeks allow more preparation time and may have fewer conflicts with other major security events. Standard registration (March 7+) assigns weeks on a first-come, first-served basis from remaining available slots.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences
+
+==================== 标签页: SCENARIO 2 ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Enterprise
+>
+Enterprise 2026
+🟠 Registration Now Closed for Enterprise 2026
+ENTERPRISE 2026 · EVALUATION OVERVIEW
+THE LEADING INDEPENDENT
+SECURITY EVALUATION
+
+ATT&CK Evaluations Enterprise 2026 tests how your solution detects and stops modern adversary behaviors — using real tradecraft, a unified scoring framework, and no vendor-controlled results. Registration is now closed.
+
+New: Total Evaluation Score (TES)
+EDR + XDR + MDR + AI SOC unified
+Results published December 2026
+Application deadline April 30, 2026
+Participation Information
+Methodology Overview
+Citation Policy
+ON THIS PAGE
+Why Participate
+What's New in 2026
+Evaluation Scenarios
+Threat Overview
+Scenario Representation
+Evaluation Intent
+Technique Scope
+What Gets Evaluated
+Test Environment
+Participation Requirements
+How to Prepare
+After You Sign
+Timeline
+FAQ · Enterprise 2026
+Contact & Apply
+WHY PARTICIPATE
+Join the leading independent evaluation of enterprise security solutions
+
+ATT&CK Evaluations are different from vendor-run tests, analyst reports, or ad-hoc pentests. They're the only independent, behavior-based evaluation that tests how solutions detect and stop real adversary tradecraft — with full telemetry published openly.
+
+📊
+Credible Third-Party Validation
+
+MITRE is the most trusted name in threat intelligence. An ATT&CK Evaluations result is recognized by CISOs and security teams worldwide as independent and unbiased evidence of product quality.
+
+🔍
+Real Gap Identification
+
+Per-technique DC and PC results show your engineering team exactly where coverage gaps exist — against Critical and High-priority techniques, not just overall averages. The most actionable product roadmap data available.
+
+🏆
+Differentiated in the Market
+
+Enterprise 2026 introduces TES — a unified quantitative score — for the first time. Early adopters of the new framework establish credibility with buyers before the methodology becomes the market standard.
+
+💡
+
+Note on competitive context: ATT&CK Evaluations do not rank vendors or declare winners. Results show what was achieved against specific adversary scenarios and how. Customers use the full breakdown — TES, modifier, per-technique results — to assess fit for their environment. Participation demonstrates commitment to transparency.
+
+NEW FOR 2026
+What's New in Enterprise 2026
+Total Evaluation Score (TES) Framework
+
+For the first time, ATT&CK Evaluations introduces a unified quantitative scoring system. TES combines detection quality (DQI) and protection quality (PQI) into a single comparable metric on a 0–2.0 scale. This moves beyond binary "detected / not detected" results to measure alert quality, analyst precision, platform speed, block timing, and false positive performance — all weighted by technique criticality.
+
+A complete methodology document with full TES scoring components is available at Full Methodology Specification.
+
+Transparent Source-of-Action Attribution
+
+Every TES score is published with a modifier showing who or what produced the quality:
+
+MODIFIER	WHO OPERATES IT	OPERATIONAL MODEL
+(P) Platform	Fully automated platform	Customer SOC team investigates from automated alerts
+(P/AI) Platform + AI	AI-augmented automation	AI enriches alerts; analysts make final decisions
+(S/H) Service + Humans	MDR/MSSP human analysts	Analysts validate, enrich, and escalate complete incidents
+(S/AI) Service + AI SOC	Autonomous AI operations	AI performs analyst-equivalent investigation and recommendations
+Mixed	Hybrid	Combination of platform automation, human analysts, and AI
+Unified Platform and Managed Services Evaluation
+
+Enterprise 2026 eliminates the historical separation between "Enterprise" and "Managed Services" rounds. EDR, XDR, MDR, MSSP, SIEM, and AI SOC vendors are all evaluated on the same adversary scenarios using the same quality metrics. Source-of-Action modifiers provide execution transparency without requiring separate tracks.
+
+Vendor Tooling Declaration
+
+All participating vendors must declare product category tags ensuring customers understand exactly what was tested. Tags: EDR, XDR, Cloud Security, Identity Protection, MDR Service, Network Detection, Managed Service / MSSP, SIEM Integration, Endpoint Protection. Multiple tags are permitted.
+
+EVALUATION SCENARIOS
+Threat Context & Scenario Design
+Threat Overview
+
+The 2026 ATT&CK® Evaluations reflect the current enterprise threat landscape, where financially motivated intrusions dominate overall activity and state-sponsored operations continue to pose significant risk — particularly in cloud and infrastructure-focused environments.
+
+Adversaries increasingly rely on abuse of trust rather than software exploitation, leveraging user interaction, valid credentials, and legitimate administrative capabilities to gain and maintain access. These intrusions are characterized by living-off-the-land techniques, minimal bespoke tooling, and execution paths that blend into normal enterprise operations. Effective detection and response therefore depend on behavioral context, correlation across systems, and understanding attacker intent — not isolated indicators.
+
+💰
+Financially Motivated
+Crimeware-as-a-service, double-extortion operations, credential abuse — high-tempo intrusions dominating enterprise incident response
+🏛️
+State-Sponsored
+PRC cyber espionage operations targeting diversified infrastructure — persistent, deliberate, identity-based lateral movement across hybrid environments
+🎭
+Shared Tradecraft
+Both threat types increasingly use living-off-the-land, valid credentials, and legitimate tools — making behavioral correlation the essential detection primitive
+Scenario Representation
+
+The two scenarios together reflect the prevailing threat balance — the majority of enterprise intrusions are cybercriminal in origin, while state-sponsored actors continue to drive innovation in infrastructure exploitation.
+
+SCENARIO 1 · ENDPOINT FOCUSED
+Financially Motivated Tradecraft
+● Registration closed
+
+Crimeware-as-a-Service Operation
+
+This scenario reflects the layered, role-based economy of cybercriminal operations, where specialized actors collaborate across distinct phases of an intrusion without operating as a unified team. It begins with targeted social engineering to harvest credentials, which are then monetized and passed to downstream actors who leverage that access to compromise victim environments and execute on their objectives. Each role in the chain is optimized for results, reflecting how the commoditization of cybercrime has made intrusions faster, harder to attribute, and more accessible to a broader range of adversaries.
+
+Scenario Focus: An endpoint-focused intrusion tracing the crimeware-as-a-service lifecycle, from social engineering-driven credential theft, to environment compromise, lateral movement, data exfiltration, and destructive impact, with living-off-the-land techniques employed throughout to evade detection.
+
+Ideal for: EDR platforms, SIEM integrations, endpoint protection vendors, managed services focused on host-based security
+SCENARIO 2 · ENTERPRISE FOCUSED
+PRC Espionage Group Tradecraft
+● Registration closed
+
+PRC Cyber Espionage Group
+
+A technically advanced PRC cyber-espionage actor that poses a persistent threat to organizations worldwide. The group has operationalized zero-day and n-day vulnerabilities, and exploited internet-facing edge devices and remote access infrastructure to gain footholds. Environmental adaptability, custom payload development, living-off-the-land behaviors, and legitimate cloud services are leveraged to blend into enterprise activity. The group's tradecraft broadly represents how PRC state-sponsored actors operate, sharing tools, techniques, and infrastructure across a well-resourced offensive cyber ecosystem. The convergence complicates attribution and makes the threat relevant to organizations across sectors and geographies.
+
+Scenario Focus: An enterprise-wide, evasive intrusion featuring exploitation of diversified infrastructure, deployment of custom and open-source tooling, and abuse of legitimate cloud services.
+
+Ideal for: XDR platforms, identity protection solutions, MDR/MSSP providers, enterprise-wide visibility offerings
+Evaluation Intent
+
+ATT&CK Evaluations are designed to assess how security platforms and services detect, correlate, and respond to modern, trust-abusing behaviors. The evaluation emphasizes three core capabilities:
+
+BEHAVIOR-BASED DETECTION
+Identifying adversary activity from behavioral patterns rather than signatures or isolated indicators — what the adversary did, not just which tool they used
+MULTI-EVENT CORRELATION
+Connecting related events across time, systems, and domains into coherent attack narratives — reducing analyst burden while improving detection fidelity
+SIGNAL VS. NOISE DISCRIMINATION
+Distinguishing malicious activity from legitimate administrative or user behavior — especially critical where adversaries deliberately blend into normal operations
+Technique Scope
+
+The Technique Scope defines which ATT&CK techniques and sub-techniques are in scope for evaluation and how parent-child relationships are handled during scoring. This structure ensures precise, actionable detections and avoids ambiguity when evaluating security controls against adversary behaviors.
+
+Key principles governing scope interpretation:
+
+CONCEPT	HOW IT WORKS
+Parent techniques	Encompass additional adversary behaviors, implementations, and variations beyond what is captured by any specific sub-technique. When a parent is in scope, the evaluation assesses the broader behavior category.
+Sub-techniques	Provide a more specific, detailed breakdown of particular adversary methods. When a sub-technique is in scope, scoring is evaluated against that specific implementation.
+Scope boundary rule	If an adversary behavior does not fit neatly into a specific sub-technique but aligns with the general concept of the parent, it remains in scope under the parent technique. This prevents adversaries from evading evaluation scope through minor implementation variations.
+🎉
+April 7, 2026 — Technique Reference Release. This section lists techniques and sub-techniques in scope for reference. Final scenario scope is a subset of these techniques. ATT&CK Enterprise v18.1
+SCENARIO 1
+SCENARIO 2
+67 techniques · 13 tactics
+VIEW IN ATT&CK NAVIGATOR ↗
+DOWNLOAD JSON
+OPEN IN ATT&CK ↗
+ALL TACTICS (67)
+Collection
+5
+Command and Control
+9
+Credential Access
+3
+Defense Evasion
+11
+Discovery
+17
+Execution
+3
+Exfiltration
+6
+Impact
+1
+Initial Access
+3
+Lateral Movement
+1
+Persistence
+5
+Privilege Escalation
+3
+Reconnaissance
+0
+COLLECTION
+5 techniques
+T1005
+Data from Local System
+↗
+T1039
+Data from Network Shared Drive
+↗
+T1074.001
+Data Staged: Local Data Staging
+↗
+T1074.002
+Data Staged: Remote Data Staging
+↗
+T1114.001
+Email Collection: Local Email Collection
+↗
+T1114.002
+Email Collection: Remote Email Collection
+↗
+T1119
+Automated Collection
+↗
+T1213.003
+Data from Information Repositories: Code Repositories
+↗
+T1213.006
+Data from Information Repositories: Databases
+↗
+T1530
+Data from Cloud Storage
+↗
+▸
+3
+T1560
+Archive Collected Data
+↗
+COMMAND AND CONTROL
+9 techniques
+T1008
+Fallback Channels
+↗
+T1071.001
+Application Layer Protocol: Web Protocols
+↗
+T1071.002
+Application Layer Protocol: File Transfer Protocols
+↗
+T1071.004
+Application Layer Protocol: DNS
+↗
+▸
+3
+T1090
+Proxy
+↗
+T1095
+Non-Application Layer Protocol
+↗
+T1102
+Web Service
+↗
+T1105
+Ingress Tool Transfer
+↗
+T1132.001
+Data Encoding: Standard Encoding
+↗
+T1132.002
+Data Encoding: Non-Standard Encoding
+↗
+▸
+1
+T1219
+Remote Access Tools
+↗
+T1568
+Dynamic Resolution
+↗
+T1571
+Non-Standard Port
+↗
+T1572
+Protocol Tunneling
+↗
+T1573.001
+Encrypted Channel: Symmetric Cryptography
+↗
+T1573.002
+Encrypted Channel: Asymmetric Cryptography
+↗
+CREDENTIAL ACCESS
+3 techniques
+T1003.003
+OS Credential Dumping: NTDS
+↗
+T1003.005
+OS Credential Dumping: Cached Domain Credentials
+↗
+T1040
+Network Sniffing
+↗
+T1056.003
+Input Capture: Web Portal Capture
+↗
+T1110
+Brute Force
+↗
+T1552.001
+Unsecured Credentials: Credentials In Files
+↗
+T1552.003
+Unsecured Credentials: Shell History
+↗
+T1552.004
+Unsecured Credentials: Private Keys
+↗
+T1557
+Adversary-in-the-Middle
+↗
+DEFENSE EVASION
+11 techniques
+T1006
+Direct Volume Access
+↗
+▸
+8
+T1027
+Obfuscated Files or Information
+↗
+▸
+4
+T1036
+Masquerading
+↗
+▸
+1
+T1055
+Process Injection
+↗
+T1070.002
+Indicator Removal: Clear Linux or Mac System Logs
+↗
+T1070.003
+Indicator Removal: Clear Command History
+↗
+T1070.004
+Indicator Removal: File Deletion
+↗
+T1070.009
+Indicator Removal: Clear Persistence
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+T1112
+Modify Registry
+↗
+T1140
+Deobfuscate/Decode Files or Information
+↗
+T1222.002
+File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification
+↗
+T1484.001
+Domain or Tenant Policy Modification: Group Policy Modification
+↗
+▸
+2
+T1497
+Virtualization/Sandbox Evasion
+↗
+T1550.004
+Use Alternate Authentication Material: Web Session Cookie
+↗
+T1553.002
+Subvert Trust Controls: Code Signing
+↗
+T1562.001
+Impair Defenses: Disable or Modify Tools
+↗
+T1562.003
+Impair Defenses: Impair Command History Logging
+↗
+T1562.004
+Impair Defenses: Disable or Modify System Firewall
+↗
+T1562.006
+Impair Defenses: Indicator Blocking
+↗
+T1562.007
+Impair Defenses: Disable or Modify Cloud Firewall
+↗
+T1562.008
+Impair Defenses: Disable or Modify Cloud Logs
+↗
+T1564.001
+Hide Artifacts: Hidden Files and Directories
+↗
+T1564.002
+Hide Artifacts: Hidden Users
+↗
+T1564.006
+Hide Artifacts: Run Virtual Instance
+↗
+T1578.002
+Modify Cloud Compute Infrastructure: Create Cloud Instance
+↗
+T1578.003
+Modify Cloud Compute Infrastructure: Delete Cloud Instance
+↗
+T1620
+Reflective Code Loading
+↗
+T1622
+Debugger Evasion
+↗
+T1678
+Delay Execution
+↗
+DISCOVERY
+17 techniques
+T1007
+System Service Discovery
+↗
+T1016
+System Network Configuration Discovery
+↗
+T1018
+Remote System Discovery
+↗
+T1033
+System Owner/User Discovery
+↗
+T1046
+Network Service Discovery
+↗
+T1049
+System Network Connections Discovery
+↗
+T1057
+Process Discovery
+↗
+T1069.001
+Permission Groups Discovery: Local Groups
+↗
+T1069.002
+Permission Groups Discovery: Domain Groups
+↗
+T1082
+System Information Discovery
+↗
+T1083
+File and Directory Discovery
+↗
+T1087.001
+Account Discovery: Local Account
+↗
+T1087.002
+Account Discovery: Domain Account
+↗
+T1087.003
+Account Discovery: Email Account
+↗
+T1087.004
+Account Discovery: Cloud Account
+↗
+T1135
+Network Share Discovery
+↗
+T1217
+Browser Information Discovery
+↗
+T1482
+Domain Trust Discovery
+↗
+T1497.001
+Virtualization/Sandbox Evasion: System Checks
+↗
+T1497.002
+Virtualization/Sandbox Evasion: User Activity Based Checks
+↗
+T1518.001
+Software Discovery: Security Software Discovery
+↗
+T1580
+Cloud Infrastructure Discovery
+↗
+T1614.001
+System Location Discovery: System Language Discovery
+↗
+T1619
+Cloud Storage Object Discovery
+↗
+T1622
+Debugger Evasion
+↗
+T1673
+Virtual Machine Discovery
+↗
+T1680
+Local Storage Discovery
+↗
+EXECUTION
+3 techniques
+T1059.004
+Command and Scripting Interpreter: Unix Shell
+↗
+T1059.009
+Command and Scripting Interpreter: Cloud API
+↗
+T1203
+Exploitation for Client Execution
+↗
+T1569.003
+System Services: Systemctl
+↗
+T1651
+Cloud Administration Command
+↗
+T1675
+ESXi Administration Command
+↗
+EXFILTRATION
+6 techniques
+T1020
+Automated Exfiltration
+↗
+T1030
+Data Transfer Size Limits
+↗
+T1041
+Exfiltration Over C2 Channel
+↗
+▸
+3
+T1048
+Exfiltration Over Alternative Protocol
+↗
+T1537
+Transfer Data to Cloud Account
+↗
+▸
+1
+T1567
+Exfiltration Over Web Service
+↗
+IMPACT
+1 technique
+T1531
+Account Access Removal
+↗
+INITIAL ACCESS
+3 techniques
+▸
+4
+T1078
+Valid Accounts
+↗
+T1133
+External Remote Services
+↗
+T1190
+Exploit Public-Facing Application
+↗
+LATERAL MOVEMENT
+1 technique
+T1021.001
+Remote Services: Remote Desktop Protocol
+↗
+T1021.004
+Remote Services: SSH
+↗
+T1021.007
+Remote Services: Cloud Services
+↗
+T1550.004
+Use Alternate Authentication Material: Web Session Cookie
+↗
+T1570
+Lateral Tool Transfer
+↗
+PERSISTENCE
+5 techniques
+T1037
+Boot or Logon Initialization Scripts
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+T1098.001
+Account Manipulation: Additional Cloud Credentials
+↗
+T1098.003
+Account Manipulation: Additional Cloud Roles
+↗
+T1098.004
+Account Manipulation: SSH Authorized Keys
+↗
+T1098.007
+Account Manipulation: Additional Local or Domain Groups
+↗
+T1112
+Modify Registry
+↗
+T1133
+External Remote Services
+↗
+T1136.001
+Create Account: Local Account
+↗
+T1136.002
+Create Account: Domain Account
+↗
+T1136.003
+Create Account: Cloud Account
+↗
+▸
+1
+T1505
+Server Software Component
+↗
+T1543.002
+Create or Modify System Process: Systemd Service
+↗
+PRIVILEGE ESCALATION
+3 techniques
+T1037
+Boot or Logon Initialization Scripts
+↗
+▸
+1
+T1055
+Process Injection
+↗
+▸
+3
+T1078
+Valid Accounts
+↗
+T1484.001
+Domain or Tenant Policy Modification: Group Policy Modification
+↗
+T1543.002
+Create or Modify System Process: Systemd Service
+↗
+T1548.003
+Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+↗
+RECONNAISSANCE
+0 techniques
+T1589.001
+Gather Victim Identity Information: Credentials
+↗
+T1595.002
+Active Scanning: Vulnerability Scanning
+↗
+Sub-techniques shown indented. All IDs link to attack.mitre.org. Subject to refinement.
+ATT&CK Enterprise v18
+
+Vendors select Scenario 1, Scenario 2, or both based on product capabilities and target markets. Scoring is independent per scenario.
+
+EVALUATION STRUCTURE
+What Gets Evaluated
+Detections Testing
+
+Protections are disabled so the full adversary attack chain executes. Your solution demonstrates complete visibility. Evaluated on:
+
+DIMENSION	WHAT'S MEASURED	SCORING COMPONENT
+Detection Coverage	Alert quality per ATT&CK technique — does your alert provide technique-specific details, ATT&CK mapping, and all 7 context elements (WHO, WHAT, WHEN, WHERE, HOW, WHY, Recommended Action)?	DC tier → Weighted_DC → DQI
+Detection Precision	Analyst efficiency — finding real threats without false positives, consolidating related activity into actionable cases rather than fragmented alerts	DP → DQI
+Detection Speed	Elapsed time from technique execution to first automated platform alert. Human analyst escalation time is excluded.	DS → DQI
+Protections Testing
+
+Protections are enabled. Tests are stage-gated: once you block, the test ends. Evaluated on:
+
+DIMENSION	WHAT'S MEASURED	SCORING COMPONENT
+Protection Coverage	Block timing in the attack chain (primary) + context quality of the block alert (secondary). Blocking before the first critical stage scores PC-3; blocking at the terminal stage after all critical objectives scores PC-1.	PC tier → Weighted_PC → PQI
+Protection Precision	False positive validation: can you block threats without disrupting legitimate business activity? Each incorrectly blocked benign activity reduces your PP score.	PP → PQI
+False Positive Validation
+
+Both scenarios include dedicated false positive testing with legitimate business activities — IT administration scripts, approved software downloads, remote desktop connections, cloud storage access, network file transfers, and data processing tools. Solutions that over-block benign activity receive lower precision scores that feed directly into PQI.
+
+INFRASTRUCTURE
+Test Environment
+
+Enterprise 2026 runs across two separate ranges — one Detection range and one Protection range that covers both scenarios. Both ranges are deployed together as a part of the Core Baseline Infrastructure (CBI), ensuring fair, repeatable testing across all participants.
+
+Detections Range
+SCENARIOS 1 & 2
+
+Both detection scenarios run on its own dedicated range. Protections are disabled during detection testing to ensure the full attack chain executes and all adversary behaviors are observable.
+
+Scenario 1 — Endpoint Focus (Detections)
+COMPONENT	SPECIFICATION
+Domain Controllers & File Servers	Windows Server 2022
+Web Servers	Windows Server 2022
+Workstations	Windows 11 Enterprise
+Email Infrastructure	Exchange Server 2019
+Network Firewall	pfSense or Open Source
+Network Segmentation	Realistic segmentation — DMZ, internal workstation zones, server zones
+Scenario 2 — Enterprise Focus (Detections)
+
+Includes all Scenario 1 components plus the following extended enterprise attack surface:
+
+COMPONENT	SPECIFICATION
+All Scenario 1 components	Windows Server 2022 domain controllers, file servers, web servers · Windows 11 workstations · Exchange Server · pfSense firewall · network segmentation
+Cloud Infrastructure	AWS (Amazon Web Services)
+Virtual Machines	AWS instances and/or additional virtualization platforms
+SSO / Identity Provider	Authentik (self-hosted IdP) + AWS IAM Identity Center — federated across both AWS organizations
+Edge Devices & Appliances	Network edge devices and appliances
+Linux Systems	Ubuntu 24.04 (Noble Numbat)
+Protections Range
+SCENARIOS 1 & 2
+
+Both the Endpoint and Enterprise scenarios are executed on a single shared Protections range. This range contains the full combined component set spanning both scenarios.
+
+COMPONENT	SPECIFICATION
+Domain Controllers & File Servers	Windows Server 2022
+Web Servers	Windows Server 2022
+Workstations	Windows 11 Enterprise
+Email Infrastructure	Exchange Server 2019
+Network Firewall	pfSense / Open Source
+Network Segmentation	Realistic segmentation — DMZ, internal workstation zones, server zones
+Cloud Infrastructure	AWS (Amazon Web Services)
+Virtual Machines	AWS instances and/or additional virtualization platforms
+SSO / Identity Provider	Authentik (self-hosted IdP) + AWS IAM Identity Center — federated across both AWS organizations
+Edge Devices & Appliances	Network edge devices and appliances
+Linux Systems	Ubuntu 24.04 (Noble Numbat)
+Participant Access & Integration
+
+The Scenario 2 Detection range and the Protections range both span two independent AWS organizations — one representing cloud infrastructure, one simulating on-premises infrastructure. Each has a distinct access model. Your solution must integrate with both to achieve full coverage.
+
+CLOUD COMPONENTS
+AWS Victim Account — IdP-Federated Access
+
+Participants receive account-level access to the victim AWS account(s) representing the cloud environment.
+
+Access is granted through Authentik (self-hosted IdP) federated with AWS IAM Identity Center — not direct IAM credentials
+Integrate your detection solution with in-scope AWS services using the permissions granted through this federation
+Configure detection, logging, and data collection as required by your solution architecture
+Scope limitation: Participants will not have access to AWS Organization-level permissions management. You cannot view or modify Organization-level policies or SCPs.
+ON-PREMISES-SIMULATED COMPONENTS
+Separate AWS Organization — Standard Access Methods
+
+Components simulating on-premises infrastructure are hosted in a separate AWS organization. Participants access these hosts using standard enterprise remote access methods.
+
+Standard access methods provided: OpenVPN, SSH, and RDP to on-premises-simulated hosts
+AWS Traffic Mirroring support is available and can be enabled for network-level telemetry collection — participants may use this capability or bring their own network monitoring approach
+Additional network components may be attached to the range's transit gateway to support participant infrastructure requirements
+If using Traffic Mirroring, configure your integration before your execution week. See AWS Traffic Mirroring documentation for setup details. Contact the evaluation team if you need transit gateway attachment support.
+🏗️
+
+Hybrid architecture: The Scenario 2 Detection range and the Protections range are each hybrid enterprise deployments spanning two independent AWS organizations — one representing cloud-native infrastructure, one simulating on-premises infrastructure. Your solution must integrate with both: cloud-native components via IdP-federated AWS account access, and on-premises-simulated components via standard access methods (OpenVPN, SSH, RDP). Solutions that integrate with only one environment will have coverage gaps against techniques executed in the other.
+
+REQUIREMENTS
+Participation Requirements
+Eligibility
+REQUIREMENT	DETAILS
+General availability	Product must be GA with paying customers at time of evaluation execution
+Technical support capacity	Vendor must be able to provide dedicated technical support during the evaluation period (Aug–Oct 2026)
+Results publication consent	Agreement to public results publication on the ATT&CK Evaluations website in December 2026
+Citation policy compliance	Commitment to follow MITRE citation policy when referencing results in marketing and sales.
+What You Must Provide
+1
+Vendor Tooling Declaration
+Declare applicable product category tags: EDR, XDR, Cloud Security, Identity Protection, MDR Service, Network Detection, Managed Service / MSSP, SIEM Integration, Endpoint Protection. Multiple tags permitted.
+2
+Configuration Documentation
+Document your solution's deployment architecture, configuration settings, and integration requirements within the test environment. Submitted prior to evaluation execution.
+3
+Technical Resource Assignment
+Assign dedicated technical contact(s) who can provide support, answer questions, and assist with integration during the evaluation execution period. Contacts must be reachable within 4 hours during execution weeks.
+4
+Draft Results Review
+Review draft results for technical accuracy before public publication. This is your opportunity to verify configuration and testing correctness. Review window and timeline TBC.
+5
+Citation Policy Compliance
+Follow MITRE citation policy guidelines when referencing results in marketing, sales conversations, and public communications.
+💬
+
+Participation fees & pricing: Cost structure is discussed during the CFP process. Submit the CFP form or schedule a meeting with the ATT&CK Evaluations team to learn more about pricing for your participation model.
+
+📋
+
+Draft results review window: November 9–20, 2026. During this period you may review your draft results for technical accuracy, submit backend detection timestamp data, and flag discrepancies before public publication in December 2026. The dispute process and submission instructions will be communicated during onboarding.
+
+PREPARATION GUIDANCE
+How to Prepare Before Your Evaluation
+
+These preparation steps will materially improve your TES scores. Start before your execution week — some require architecture decisions that take weeks to implement.
+
+Detection Coverage (DC)
+DQI
+
+DC is scored at the behavior level — one DC score per ATT&CK technique regardless of how many alerts you generate.
+
+Ensure alerts include all 7 context elements: WHO, WHAT (ATT&CK mapped), WHEN, WHERE, HOW, WHY, Recommended Action
+DC-3 requires explicit ATT&CK technique mapping — tactic-level only scores DC-2
+Test your alert quality against specific ATT&CK techniques in Scenario 1 before your execution week
+Detection Precision (DP)
+DQI
+
+DP rewards consolidation. One incident case covering 50 behaviors scores far higher than 50 separate cases for the same behaviors.
+
+Configure your correlation rules to consolidate related adversary activity into unified incident cases
+Test false positive rate against the business activity types used in FP validation testing
+Reduce case fragmentation — the case-count penalty is significant
+Detection Speed (DS)
+DQI
+
+DS measures time from technique execution to first automated platform alert. Sub-15-minute = Real-Time tier (score: 1.0).
+
+If you're a cloud platform, measure actual backend detection time vs. UI rendering time — they differ
+Plan to submit backend timestamps during the results review period if UI latency is a factor
+Identify and reduce pipeline bottlenecks (API polling intervals, batch ingestion delays)
+Protection Coverage (PC) & Timing
+PQI
+
+Block timing is the primary PC tier determinant. Blocking before the first critical stage scores PIW 1.0× (maximum); blocking at the terminal stage scores PIW 0.25× (minimum).
+
+Block alerts should also include the 7 context elements — full context at Stage 1–2 → PC-3; partial → PC-2
+If using "observe before block" strategy, document it in advance with supporting telemetry plan
+Test block triggers against the specific technique categories in Scenario 1
+📋
+
+The Full Methodology Specification contains complete scoring formulas, all 7 context element definitions, tier assignment matrices, and the cloud latency timestamp submission process. Reading it before your execution week is the highest-leverage preparation activity.
+
+ONBOARDING PROCESS
+What Happens After You Sign
+1
+Contract Processing & Confirmation
+MITRE confirms receipt of signed contract and provides onboarding documentation. Group 1 lottery participants receive lottery results after March 6 deadline.
+2
+Execution Week Selection
+Group 1 lottery winners select from available execution weeks (preferred order). Standard registration vendors select on first-come, first-served basis after March 7.
+3
+Technical Kickoff — June 2026
+MITRE evaluation team conducts technical kickoff with your assigned technical contacts. Covers environment access, integration requirements, and communication protocols for the evaluation period. Configuration documentation is due
+5 months before your execution week
+.
+4
+Environment Setup, Integration & Execution (Aug–Oct 2026)
+Your assigned execution week runs across four structured phases:
+Week 1–2 — Tool Installation:
+Vendor deploys and configures their solution into the test environment.
+Week 3 — Validation & Training:
+Integration validation, configuration sign-off, and MITRE-led training on the vendor's product to ensure the evaluation team can accurately assess its capabilities.
+Week 4 — Execution:
+Adversary emulation scenarios are executed. Both detection and protection phases run during this week. Your technical contacts are available throughout.
+5
+Draft Results Review — November 9–20, 2026
+MITRE provides draft results for your review. Submit backend detection timestamp data, flag technical discrepancies, and verify configuration accuracy before public publication. MITRE does not change scores based on competitive preference — only technical accuracy corrections are accepted.
+6
+2026 Results & Insights — December 2026
+MITRE announces the completion of the 2026 ATT&CK Evaluations and publishes a public aggregation of insights from across the evaluation cycle. The publication highlights collective findings, defensive trends, and lessons learned while preserving the confidentiality of individual participant results.
+KEY DATES
+Timeline
+Feb 17, 2026
+Call for Participation opens.
+Registration and contract submission begins.
+Closed
+Mar 6, 2026
+Group 1 Lottery deadline (11:59pm ET).
+Submit complete, signed contracts by this date to enter the lottery for preferred execution week selection.
+Closed
+Mar 3, 2026
+Scenario 2 technical specifications published.
+Full infrastructure details, integration requirements, and architecture documentation released.
+Closed
+Mar 7 – Apr 30
+Standard registration window.
+Signed contracts accepted. Execution weeks assigned on first-come, first-served basis.
+Closed
+Apr 30, 2026
+Application deadline.
+No contracts accepted after this date.
+Closed
+Aug – Oct 2026
+Evaluation execution phase.
+Adversary emulation scenarios run across all vendor execution weeks.
+Now
+Nov 9-20 2026
+Draft results review window: November 9–20, 2026.
+Participants review their private draft results, submit backend timestamp data, flag technical discrepancies, and verify configuration accuracy before results are finalized.
+Upcoming
+Dec 2026
+Public results & insights publication.
+MITRE announces completion of the 2026 ATT&CK Evaluations and publishes aggregated insights, trends, and lessons learned from the private evaluations. Individual participants results may remain private.
+Upcoming
+
+Timeline subject to adjustment based on participation volume.
+
+🎯
+
+Group 1 Lottery advantage: Submit a complete, signed contract between February 17 – March 6, 2026 (11:59pm ET) to enter the lottery for preferred execution week selection. Preferred weeks allow more preparation time and may have fewer conflicts with other major security events. Standard registration (March 7+) assigns weeks on a first-come, first-served basis from remaining available slots.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences

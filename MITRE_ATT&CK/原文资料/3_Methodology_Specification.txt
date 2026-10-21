@@ -1,0 +1,760 @@
+来源 URL: https://evals.mitre.org/methodology-specification/
+抓取时间: 2026-10-21T07:00:24.098Z
+
+
+==================== 页面正文 ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Methodology Specification
+OVERVIEW
+Total Evaluation Score (TES)
+Formula & Scale
+Source-of-Action Modifiers
+DETECTION (DQI)
+DQI Overview
+Detection Coverage (DC)
+DC Tier Definitions
+Attack Chain Weighting (ACW)
+Detection Precision (DP)
+Detection Speed (DS)
+DQI Final Formula
+PROTECTION (PQI)
+PQI Overview
+Protection Coverage (PC)
+PC Tier Definitions
+Attack Chain Weighting (ACW)
+Protection Precision (PP)
+PQI Final Formula
+INVESTIGATION (IQI)
+IQI Overview
+Investigation Coverage (IC)
+IC Tier Definitions
+Attack Chain Weighting (ACW)
+Analyst Precision (AP)
+Conclusion Speed (CS)
+IQI Final Formula
+REFERENCE
+Worked Example: Mock Scenario
+Scenario
+ACW Assignment
+DQI Calculation
+PQI Calculation
+TES Calculation
+IQI Calculation
+Published Results
+Vendor Guidance
+
+ENTERPRISE 2026 — FULL METHODOLOGY SPECIFICATION
+
+SCORING FRAMEWORK:
+TECHNICAL REFERENCE
+
+Complete formulas, tier definitions, weighting structures, and worked examples for the Enterprise 2026 scoring system. For conceptual explanations and guidance on reading results, see the Methodology Overview →
+
+📅
+Evaluation Year:
+Enterprise 2026
+📄
+Audience:
+Vendors, Customers, Press
+🔗
+Overview:
+Methodology Overview →
+Total Evaluation Score (TES)
+
+TES is built on four questions a defender needs answered about any security tool. Before reading the formulas, it helps to understand what each question is, and which metric answers it.
+
+LAYER 1 — SIGNAL
+Generating and acting on behaviors → DQI + PQI
+Did the platform generate and act on the right signals?
+
+Layer 1 is the foundation of TES. It measures alerting quality (DC tiers), signal precision (DP/PP), detection speed (MTTD), and blocking effectiveness (PC tiers) — DC/PC weighted by ACW so critical techniques count more than low-signal ones.
+
+AlertingPrecisionSpeed (MTTD)Blocking
+LAYER 2 — ANALYSIS
+Making sense of what signals mean → IQI
+Did the operation understand what happened?
+
+Layer 2 is IQI — reported separately from TES. It measures how completely the investigation reconstructed adversary activity (IC), how accurately conclusions were reached (AP), and how quickly a defensible understanding was achieved (MTTC).
+
+InvestigationCorrelationAccuracy
+LAYER 3 — OUTCOME
+Did you win against the adversary → Future scope
+Did the defender achieve the right operational result?
+
+Layer 3 measures whether the full defensive operation — detection, investigation, and response — produced a winning outcome against the adversary. Response quality, decisioning accuracy, and operational resilience. Proposed for future methodology versions.
+
+ResponseDecisioningResilience
+ACW — CHAIN WEIGHTING
+Applies across all three layers → DC · PC · IC
+How critical was each technique to adversary success?
+
+ACW assigns a scenario-specific weight (1.0×–0.0×) to each ATT&CK technique based on its role in the attack chain. The same weighting applies to detection coverage, protection coverage, and investigation coverage — so all three layers reflect adversary significance, not flat technique counts.
+
+Critical 1.0×High 0.75×Medium 0.5×Low 0.25×
+How the three layers relate to published scores: Layer 1 (Signal) feeds DQI and PQI, which combine into TES = DQI + PQI on a 0–2.0 scale. Layer 2 (Analysis) produces IQI, reported alongside TES as a separate investigation quality score. Layer 3 (Outcome) is proposed for future methodology versions. ACW applies across all layers so adversary-critical techniques weight more than low-signal behaviors at every scoring level.
+Formula & Scale
+TES FORMULA
+TES = DQI + PQI
+DQI = Detection Quality Index (scale: 0.0 – 1.0)
+PQI = Protection Quality Index (scale: 0.0 – 1.0)
+TES = Combined score (scale: 0.0 – 2.0)
+Expressed as a percentage: TES / 2.0 × 100 = 0–100%
+Source-of-Action Modifiers
+
+Every TES score is published with a modifier in parentheses. This modifier indicates who or what produced the detection and protection quality — not what the score was. Scores from different modifier types are measuring the same quality dimensions, but the operational model required to achieve that score differs significantly.
+
+MODIFIER
+NAME
+OPERATIONAL MEANING
+(P)
+Platform
+Fully automated platform. No human analyst involvement. Customer's SOC team works from generated alerts.
+(P/AI)
+Platform + AI Copilot
+AI augments automation but does not replace human decision-making. AI enriches alerts; analysts make final decisions.
+(S/H)
+Service + Human Analysts
+MDR/MSSP model. Human analysts validate, enrich, and escalate complete incidents with remediation guidance.
+(S/AI)
+Service + AI SOC
+AI-driven SOC with analyst-equivalent capability and accountability. Autonomous investigation and recommendations.
+Mixed
+Hybrid
+Combination of platform automation, human analysts, and AI in integrated workflows.
+ℹ️
+
+TES measures what was achieved. The modifier reveals how. A TES of 0.82 (S/H) and 0.82 (P) represent identical security outcomes achieved through fundamentally different operational models — with very different implications for your team's workload and required SOC capacity.
+
+Detection Quality Index (DQI)
+
+DQI measures how precisely a solution identifies adversary behaviors without blocking — allowing full attack lifecycle visibility. Protections are disabled during detection testing. DQI is the average of three normalized components.
+
+DQI FORMULA
+DQI = (Weighted_DC_normalized + DP + DS_normalized) / highest_DC_score
+Weighted_DC_normalized = Detection Coverage, ACW-weighted, normalized to 0–1
+DP = Detection Precision (0–1)
+DS_normalized = Detection Speed, normalized to 0–1
+Scale: 0–1 (0% to 100% detection quality)
+Detection Coverage (DC)
+
+Detection Coverage measures alert quality and actionability. It is scored per ATT&CK technique (behavior), not per alert. A vendor generating 15 alerts for one technique receives one DC score based on the best alert quality across all those alerts.
+
+⚠️
+
+Behavior-level scoring is fundamental. Evaluation documentation may reference adversary "substeps" for scenario narrative purposes. For DC scoring: one substep contains one behavior; you receive one DC score per behavior regardless of how many alerts. This prevents alert-volume conflation.
+
+DC TIER DEFINITIONS
+TIER	SCORE	DEFINITION	REQUIREMENT
+DC-3	3.0	Actionable — Technique-level detection with full context	Alert explicitly identifies ATT&CK technique or sub-technique (e.g., T1003.001). Provides actionable context enabling immediate response without additional investigation.
+DC-2	2.0	Correlated (Generic) — Tactic/generic-level detection, requires enrichment	Alert identifies suspicious behavior at tactic level (e.g., "Credential Access") but does not specify which technique. Analyst must investigate to determine the specific method.
+DC-1	1.0	Observed — Telemetry exists, no alert generated	Raw logs show technique execution. No platform alert fired. Discoverable only through manual hunting or retrospective log analysis.
+DC-0	0.0	Not Observed — Complete blind spot	No alert and no telemetry. The adversary activity is completely invisible — cannot be discovered through hunting or log analysis.
+N/A	—	Not Assessed — Test not applicable or not conducted	Technical limitation, platform exclusion, or evaluation scope boundary. N/A does not count as a detection failure and is excluded from scoring.
+WHAT A DC-3 ALERT MUST CONTAIN
+
+A DC-3 score requires that at least one alert for the behavior answers all of the following:
+
+WHO
+User or entity identity (e.g., CORP\\jsmith)
+WHAT
+The Detection Criteria - the behavior under test
+WHEN
+Timestamp of behavior occurrence
+WHERE
+Hostname and IP address minimum
+HOW
+ATT&CK (sub-) Technique level enrichment
+SEVERITY
+Any indication the behavior is malicious or suspicious
+DC-3 EXAMPLE ALERT
+ALERT: T1003.001 OS Credential Dumping — LSASS Memory
+WHO: CORP\\admin
+WHAT: T1003.001 LSASS Memory Dumping via rundll32.exe → comsvcs.dll MiniDump
+WHEN: 2026-08-15 14:23:15 UTC
+WHERE: WORKSTATION-05 (10.50.1.22)
+HOW: rundll32.exe executed comsvcs.dll MiniDump targeting lsass.exe (PID 712)
+SEVERITY: malicious/suspicious detection alert
+
+Attack Chain Weighting (ACW)
+
+ATT&CK Chain Weighting (ACW) assigns a scenario-specific weight to each ATT&CK technique based on its importance to the adversary's terminal objective. ACW prevents flat scoring across techniques that do not contribute equally to adversary success. Under ACW, failure to detect or protect against a critical technique has greater scoring impact than failure on a weak-signal or inert technique.
+
+ACW is assigned independently for each evaluation scenario. The same ATT&CK technique may receive different weights in different scenarios depending on its role in the attack chain.
+
+WEIGHTED DETECTION COVERAGE
+Weighted_DC = Σ(DC_technique × ACW_technique) / Σ(ACW_technique)
+Weighted_DC_normalized = Weighted_DC / highest_DC_score
+ACW_t ∈ {1.0, 0.75, 0.5, 0.25, 0.0} where t represents a scored ATT&CK technique or test element
+ACW TIER STRUCTURE
+ACW WEIGHT	LABEL	DEFINITION	DIAGNOSTIC SIGNAL
+1.0×	Critical	The technique is essential to achieving the adversary's terminal objective. Preventing or detecting this step would stop the campaign or cause objective failure. No substitution possible in context.	Q1 = Yes. "If blocked, campaign fails."
+0.75×	High	The technique is a major enabling step. Preventing or detecting it would significantly degrade the adversary's path, force major rework, or remove a necessary operational advantage.	Q1 = No, Q2 = Yes. "Failure degrades significantly."
+0.5×	Medium / Contextual	The technique is supportive or efficiency-improving but substitutable. It contributes meaningful context without being decisive to adversary success.	Q1 = No, Q2 = No, Q3 = Yes. "Useful but substitutable."
+0.25×	Low / Weak Signal	A low-confidence or low-consequence signal that gains importance primarily when chained with other activity. Internal, post-access, or anomalous-source behavior. Do not dismiss — requires a chain partner to confirm but is not ignorable.	All Q = No + behavior is internal, post-access, or anomalous source.
+0.0×	Benign / Inert	Genuinely ignorable. Common to both malicious and legitimate actors with no discriminating value in context. External pre-access scanning, no authenticated session, baseline-consistent, no follow-on events.	All Q = No + behavior is external, pre-access, baseline-consistent, no follow-on.
+⚠️
+
+ACW is not a generic ATT&CK severity rating. It is a scenario-bound weighting framework. The same ATT&CK technique may receive 1.0× in one scenario and 0.5× in another, depending on its role in the specific attack chain and terminal objective. Weights must be assigned per scenario before evaluation scoring is calculated.
+
+ACW ASSIGNMENT PROCEDURE
+
+ACW assignment follows a six-step procedure. For each technique, the evaluator works through three diagnostic questions in order, stopping at the first Yes:
+
+Q1 — Termination test
+If this technique fails or is blocked, does the adversary's terminal objective fail entirely? → 1.0×
+Q2 — Degradation test
+If this technique fails, does it significantly degrade the adversary's path — forcing a restart, a detour, or a capability loss that materially reduces success probability? → 0.75×
+Q3 — Context test
+Does this technique provide useful context or reduce friction, but the adversary can achieve their objective without it or with a ready substitute? → 0.5×
+All No → Context check
+Is the behavior internal, post-access, or from an anomalous source? → 0.25×. Is it external, pre-access, baseline-consistent with no follow-on? → 0.0×
+ℹ️
+
+The non-negotiable rule: The evaluator must be able to complete this sentence before assigning any weight: "The adversary in this scenario succeeds when ___." Weights assigned without an explicit terminal objective are not meaningful and will be internally inconsistent. ACW assignment must also include a written justification for each technique tied explicitly to the terminal objective.
+
+ACW QUALITY ASSURANCE RULES
+RULE	REQUIREMENT
+Terminal-objective requirement	No technique may be assigned an ACW value until the terminal objective is explicitly defined.
+Critical-weight ceiling	No more than approximately 20–25% of the scored chain should receive 1.0× unless there is strong scenario-specific justification. If more than ~25% are 1.0×, re-apply Q1 for each: if the adversary has a ready substitute, it is not 1.0×.
+Discovery floor	Internal discovery or contextual enumeration defaults to 0.25× (weak signal, needs a chain partner). External or ambient discovery with no meaningful adversary dependency and no authenticated session is 0.0×. Do not collapse both into a single "background" bucket.
+Same-technique consistency	Repeated use of the same ATT&CK technique should not receive different weights unless the evaluator documents a different phase role or adversary dependency. Re-run the diagnostic questions independently for each instance.
+Objective-linked justification	Every weight must be defensible in relation to how directly the technique contributes to adversary success. Justifications must reference the terminal objective explicitly — not just the technique description.
+EXAMPLE CALCULATION
+4-TECHNIQUE EXAMPLE
+TECHNIQUE	NAME	DC TIER	DC SCORE	ACW	CRITICALITY
+T1003.001	Credential Dumping	DC-3	3.0	1.0×	Critical
+T1059.001	PowerShell	DC-3	3.0	0.75×	High
+T1082	System Discovery	DC-2	2.0	0.5×	Medium / Contextual
+T1033	User Discovery	DC-0	0.0	0.25×	Low / Weak Signal
+Step 1 — Weighted numerator: (3.0 × 1.0) + (3.0 × 0.75) + (2.0 × 0.5) + (0.0 × 0.25) = 3.0 + 2.25 + 1.0 + 0.0 = 6.25 Step 2 — Sum of weights: 1.0 + 0.75 + 0.5 + 0.25 = 2.5 Step 3 — Weighted_DC: 6.25 / 2.5 = 2.5
+Weighted_DC_normalized = 2.5 / 3.0 = 0.833 (83.3%)
+💡
+
+Without ACW, the simple average would be (3+3+2+0)/4 = 2.0 → 66.7%. ACW raises this to 83.3% because the vendor detected the critical and high-priority techniques. A gap on a 0.25× weak-signal technique has proportionally less scoring impact than a gap on a 1.0× terminal technique.
+
+Detection Precision (DP)
+
+Detection Precision measures analyst efficiency — not just classifier accuracy. It penalizes both false positives and fragmented case management, because both create workload without improving security outcomes.
+
+DETECTION PRECISION FORMULA
+DP = TP / (TP + FP + (Cases − 1))
+TP = Unique malicious behaviors correctly detected (behavior-level, not alert-level)
+FP = Unique benign behaviors incorrectly flagged as malicious
+Cases = Number of incident cases presented to analysts for investigation
+Scale: 0–1. Note: this differs from standard ML precision (TP/(TP+FP)) by incorporating case consolidation as an operational cost. Also, if a vendor does not have case consolidation, each alert will be counted as 1 case.
+WHY CASE CONSOLIDATION IS SCORED
+VENDOR A — FRAGMENTED
+
+50 behaviors correctly detected (TP = 50)
+
+0 false positives (FP = 0)
+
+50 separate cases (Cases = 50)
+
+→ 50 analyst investigations, 8–12 hours analyst time
+
+DP = 50 / (50+0+49) = 0.505 (50.5%)
+VENDOR B — CONSOLIDATED
+
+50 behaviors correctly detected (TP = 50)
+
+0 false positives (FP = 0)
+
+1 consolidated incident case (Cases = 1)
+
+→ 1 analyst investigation, 30–45 minutes analyst time
+
+DP = 50 / (50+0+0) = 1.0 (100%)
+
+Both vendors have identical classifier precision under standard measures. DP correctly reflects that Vendor B delivers 10–16× better analyst efficiency for the same security outcome.
+
+WHAT COUNTS AS A FALSE POSITIVE
+COUNTS AS FP	DOES NOT COUNT AS FP
+Legitimate business application incorrectly flagged and alerted	Detection alerts on benign activity without analyst-facing case creation
+Benign file quarantined, process terminated, or network connection blocked	Blocks that did not disrupt business operations
+User workflow interrupted, requiring exception or override	User warnings that allow continuation without intervention
+Service disruption affecting legitimate business operations	Deferred blocks pending analyst approval
+Detection Speed (DS)
+
+Elapsed time from adversary technique execution to first automated platform alert; independent of service model.
+
+TIER	THRESHOLD	SCORE	DESCRIPTION
+Real-Time	less than 15 min	1.0	Gold standard enabling proactive containment.
+Acceptable Delay	15–30 min	0.75	Operationally useful for incident response.
+Significant Delay	greater than 30 min	0.5	Reduced response opportunities.
+No Detection	No alert	0.0	No alert means no speed score.
+DS FORMULA
+DS_normalized = Σ(Speed_score_per_technique) / N_total_techniques
+Cloud Architecture Measurement Considerations
+
+Cloud-based detection platforms introduce several latency sources that are beyond vendor control but can affect DS scoring if not properly accounted for. Evaluators apply the following measurement framework for cloud platforms.
+
+⚠️
+
+Vendors must proactively submit backend timestamps during the results review period if any of the factors below may have affected their displayed detection times. Evaluators will not retroactively request this data — it is the vendor's responsibility to surface it.
+
+LATENCY SOURCE	TYPICAL RANGE	HOW IT'S HANDLED
+UI Rendering Latency	15–60 seconds	Alert timestamp in evaluator console may lag backend detection time due to front-end rendering pipelines, WebSocket delays, or polling intervals. Backend API timestamps take precedence when submitted.
+API Polling Intervals	30–120 seconds	Platforms that surface alerts via API polling rather than event-push introduce systematic delay equal to the polling interval. Vendors should document their alert delivery architecture and submit backend event timestamps showing actual detection time.
+Regional Latency	30–120 seconds	Geographic distance between evaluation infrastructure and vendor cloud region introduces variable network latency. This does not affect backend detection time but may affect timestamp synchronization. UTC timestamps are used for all measurements.
+Log Ingestion Pipeline	1–5 minutes	Batch log ingestion architectures may delay detection relative to real-time stream processing. Vendors with batch pipelines are encouraged to document ingestion frequency and submit first-detection timestamps from backend telemetry.
+Timestamp Rounding	±30 seconds	All cloud platform timestamps are rounded to the nearest minute during scoring. On-premises platforms are measured to the second.
+EXAMPLE: CLOUD PLATFORM DS SUBMISSION
+Technique execution time (evaluator log): 14:22:07 UTC First alert in evaluator UI: 14:23:52 UTC (105 seconds — UI rendering + polling) Backend alert timestamp (vendor submission): 14:22:19 UTC (12 seconds — actual detection) Without backend submission: elapsed = 105s → Tier: Acceptable Delay (DS score: 0.75) With backend submission: elapsed = 12s → Tier: Real-Time (DS score: 1.0)
+Vendor gains +0.25 per technique by submitting backend timestamps during review period
+2.5 — DQI Final Calculation
+DQI FINAL FORMULA
+DQI = (Weighted_DC_normalized + DP + DS_normalized) / total_DQI_components
+EXAMPLE
+Weighted_DC_normalized = 0.833 DP = 0.700 DS_normalized = 0.708 DQI = (0.833 + 0.700 + 0.708) / 3 = 2.241 / 3
+DQI = 0.747 (74.7% Detection Quality)
+Protection Quality Index (PQI)
+
+PQI measures how effectively a solution blocks adversary techniques before major impact, with protections enabled. It scores both the strategic value of when the block occurred and how clearly the system communicated the blocking decision.
+
+PQI FORMULA
+PQI = (Weighted_PC_normalized + PP) / total_PQI_components
+Weighted_PC_normalized = Protection Coverage, ACW-weighted, normalized to 0–1
+PP = Protection Precision (0–1)
+Scale: 0–1 (0% to 100% protection quality)
+Protection Coverage (PC)
+
+Protection tests are stage-gated: once a vendor blocks at any stage, the test ends and remaining stages are not executed. This simulates realistic attack progression where successful blocking prevents downstream activity.
+
+Each test receives one PC score based on two dimensions: block timing (primary) and context quality (secondary).
+
+CONTEXT QUALITY: 7 ELEMENTS
+
+The block alert is assessed for the presence of these 7 elements:
+
+WHO
+User or entity identity
+WHAT
+The Detection Criteria - behavior under test
+WHEN
+Block timestamp
+WHERE
+Hostname and IP address
+HOW
+Technical decision mechanism (behavioral detection, policy, ML, signature)
+WHY
+Threat justification — why this behavior is malicious
+RECOMMENDED ACTION
+Clear next steps for security teams: investigation guidance and remediation steps
+PC TIER ASSIGNMENT MATRIX
+BLOCK STAGE	FULL CONTEXT (6–7/7)	PARTIAL CONTEXT (4–5/7)	MINIMAL CONTEXT (1–3/7)	NO BLOCK
+Stage 1–2 (before/at first critical)	PC-3 (3.0)	PC-2 (2.0)	PC-1 (1.0)	PC-0 (0.0)
+Stage 3 (mid-chain, after first critical)	PC-2 (2.0)	PC-2 (2.0)	PC-1 (1.0)	PC-0 (0.0)
+Stage 4+ (terminal, after all critical)	PC-1 (1.0)	PC-1 (1.0)	PC-1 (1.0)	PC-0 (0.0)
+No block at any stage	PC-0 (0.0)	PC-0 (0.0)	PC-0 (0.0)	PC-0 (0.0)
+
+Key principle: Timing is the primary determinant. Late blocks cannot achieve PC-3 regardless of context quality. Minimal context cannot achieve PC-3 regardless of timing.
+
+3.2 — Weighted PC Formula (ACW-Weighted)
+
+Protection Coverage is weighted by the same Attack Chain Weighting (ACW) criticality tiers used in detection. Techniques assigned Critical ACW contribute more to the weighted PC score than Low-criticality techniques — so blocking a credential dumping technique (Critical, 1.0×) counts more than blocking a discovery technique (Low, 0.25×).
+
+WEIGHTED PROTECTION COVERAGE
+Weighted_PC = Σ(PC_test × ACW_test) / total_PC_test
+Weighted_PC_normalized = Weighted_PC / highest_PC_score
+ACW weights: Critical 1.0× · High 0.75× · Medium/Contextual 0.5× · Low/Weak Signal 0.25× · Benign/Inert 0.0× — identical to DQI weighting
+EXAMPLE CALCULATION: 2 TESTS
+
+Each test contains multiple ATT&CK behaviors, but the platform can only block once — at whichever stage it fires. The PC score and the ACW used for weighting are those of the blocking technique only. Behaviors that were never reached because the test ended at the block do not receive separate PC scores.
+
+💡
+
+One block per test. If a test contains T1059 → T1003 → T1021 and the platform blocks at T1003, that test scores PC on T1003’s ACW weight. T1059 and T1021 are not scored — the block ended the test. To evaluate multiple blocking points, you need multiple independently run tests.
+
+2-TEST EVALUATION
+TEST	BEHAVIORS IN TEST	BLOCKING TECHNIQUE	BLOCK STAGE	CONTEXT QUALITY	PC SCORE	ACW
+Test 1	T1059 → T1003 → T1021	T1003 Credential Dumping	Stage 1–2	Full context (6/7)	PC-3 3.0	1.0×
+Test 2	T1059 → T1486 → T1021	T1486 Ransomware	Stage 3	Full context (6/7)	PC-2 2.0	1.0×
+Step 1 — Weighted numerator: (3.0 × 1.0) + (2.0 × 1.0) = 3.0 + 2.0 = 5.0 Step 2 — Total Protection Tests: Test1 + Test2 = 2.0 Step 3 — Weighted_PC: 5.0 / 2.0 = 2.50
+Weighted_PC_normalized = 2.50 / 3.0 = 0.833 (83.3%)
+💡
+
+Test 1 scores higher because the block fired earlier (Stage 1–2 vs Stage 3). Both tests had full context and the same Critical ACW weight, so the difference in Weighted_PC comes entirely from block timing — which is exactly what PC tier is designed to capture.
+
+Protection Precision (PP)
+
+Protection Precision measures the balance between blocking threats and maintaining business continuity. False positives are measured objectively through observable system disruption — not self-reported.
+
+PROTECTION PRECISION FORMULA
+PP = TP / (TP + FP)
+TP = Unique malicious behaviors correctly blocked without disrupting business operations
+FP = Unique benign behaviors incorrectly blocked, OR malicious blocks that broke business operations
+In stage-gated testing, blocking occurs at one stage per test. If a vendor blocks at Stage 2, this counts as TP = 1 — not multiple. Remaining stages never execute and are not counted.
+3.4 — PQI Final Calculation
+PQI FINAL FORMULA
+PQI = (Weighted_PC_normalized + PP) / total_PQI_components
+EXAMPLE
+Weighted_PC_normalized = 0.784 PP = 0.714 PQI = (0.784 + 0.714) / 2 = 1.498 / 2
+PQI = 0.749 (74.9% Protection Quality)
+Investigation Quality Index (IQI)
+
+IQI measures how effectively a security operation investigates an incident after the first automated alert. It evaluates whether the investigation covered the relevant adversary behaviors, reached an accurate and consolidated conclusion, and did so within an operationally meaningful timeframe.
+
+ℹ️
+
+IQI is reported separately from TES. TES measures platform detection and protection effectiveness through DQI and PQI. IQI measures post-alert investigation quality and decision-making performance. A scenario may exhibit weak behavior-level detection on one technique but still produce a strong scenario-wide investigation outcome through later correlation and reconstruction.
+
+IQI FORMULA
+IQI = (Weighted_IC_normalized + AP + CS_normalized) / total_IQI_components
+Weighted_IC_normalized = Investigation Coverage, ACW-weighted, normalized to 0–1
+AP = Analyst Precision (0–1)
+CS_normalized = Conclusion Speed, normalized to 0–1
+Scale: 0–1 (0% to 100% investigation quality)
+Investigation Coverage (IC)
+
+Investigation Coverage measures how completely the investigation reconstructed the adversary activity associated with the scenario. IC is scored per ATT&CK behavior, not per alert. A scenario may contain multiple ATT&CK behaviors, and each behavior receives its own IC score based on the completeness of the investigation associated with that behavior.
+
+IC evaluates whether the investigation established the required context, incorporated supporting evidence, correlated related activity, and assessed operational scope.
+
+IC TIER DEFINITIONS
+TIER	CORE REQUIREMENT	EXTENDED REQUIREMENT	CORRELATION REQUIREMENT	KEY GATES	INTERPRETATION
+IC-3
+Comprehensive Investigation	5 / 5 core elements	3–4 / 4 extended	Multiple related alerts/events correlated into a full chain	HOW required	Full investigative workup with causal reasoning, cross-domain evidence, and defined blast radius
+IC-2
+Correlated Investigation	≤4 / 5 core elements	≤2 / 4 extended	At least one related alert/event OR partial attack chain/timeline	Missing HOW caps at this tier	Meaningful multi-event investigation with strong context, but not complete
+IC-1
+Basic Investigation	≤3 / 5 core elements	≤1 / 4 extended	No robust multi-alert correlation	No correlation caps here	Alert enrichment with limited surrounding context
+IC-0
+No Investigation	0 elements	0 elements	None	N/A	Alert ignored or passed through with no enrichment
+REQUIRED INVESTIGATIVE ELEMENTS
+
+A valid investigation should address the following core context elements:
+
+WHO
+User, account, or entity involved
+WHAT
+Behavior, alert, or case under investigation
+WHEN
+Timeline of material events
+WHERE
+Host, IP, cloud resource, tenant, or asset location
+HOW
+Attack mechanism or adversary path
+
+Extended investigative depth is measured through:
+
+EVIDENCE
+Supporting artifacts beyond the original alert
+CORRELATION
+Related events stitched into a coherent case or chain
+SCOPE
+Impacted assets, users, services, or data
+DISPOSITION
+Investigation conclusion and recommended next step
+💡
+
+IC scope rule: IC is scored per behavior and then aggregated to the scenario level. Investigation quality on one behavior does not increase or decrease the raw IC score of another behavior.
+
+POPULATING CORE AND EXTENDED ELEMENTS: PLATFORM-AUTOMATED VS. EVIDENCE-SUBMITTED
+
+Core and extended elements do not need to come from a single source. An element is satisfied whether the vendor's platform populates it automatically at alert generation, or whether it is demonstrated through additional evidence submitted around that alert. Both paths count toward the same element tally.
+
+PLATFORM-AUTOMATED
+Elements populated directly by the platform when the alert fires, with no analyst or service involvement required.
+EVIDENCE-SUBMITTED
+Elements demonstrated through supporting material submitted alongside the alert — e.g., email alert notifications, triage tickets, end-of-scenario reporting, or threat-hunting activity conducted in the platform.
+
+If a vendor's platform automates an alert that populates 3 of the 5 core elements on its own, that behavior already qualifies for IC-1 (≤3/5 core) on the strength of the automated alert alone. Additional evidence submitted for that same behavior can then supply the remaining core elements needed to advance to IC-2 or IC-3, as well as the extended elements (EVIDENCE, CORRELATION, SCOPE, DISPOSITION).
+
+💡
+
+Cross-score effect: Because several core elements (WHO / WHAT / WHEN / WHERE / HOW) are shared with the fields required for Detection Coverage (DC) scoring, evidence that completes a missing core element — most notably HOW (ATT&CK technique enrichment) — can also raise the Detection Coverage (DC) score for that behavior, not just its Investigation Coverage (IC) tier.
+
+⚠️
+
+Pure service vendors: Vendors without a platform automating alerts receive no automated core-element credit. These vendors must demonstrate all core and extended elements — WHO / WHAT / WHEN / WHERE / HOW plus EVIDENCE / CORRELATION / SCOPE / DISPOSITION — exclusively through submitted service evidence (e.g., analyst reporting, triage tickets, hunt findings).
+
+4.2 — Weighted IC Formula (ACW-Weighted)
+
+Investigation Coverage is weighted by the same Attack Chain Weighting (ACW) criticality tiers used in detection and protection. Techniques assigned Critical ACW contribute more to the weighted IC score than Low-criticality techniques — so thoroughly investigating a credential dumping technique (Critical, 1.0×) counts more than investigating a discovery technique (Low, 0.25×).
+
+WEIGHTED INVESTIGATION COVERAGE
+Weighted_IC = Σ(IC_behavior × ACW_behavior) / Σ(ACW_behavior)
+Weighted_IC_normalized = Weighted_IC / highest_IC_score
+ACW weights: Critical 1.0× · High 0.75× · Medium/Contextual 0.5× · Low/Weak Signal 0.25× · Benign/Inert 0.0× — identical to DQI and PQI weighting
+EXAMPLE CALCULATION: 4 BEHAVIORS
+4-BEHAVIOR EVALUATION
+BEHAVIOR	NAME	IC TIER	IC SCORE	ACW	CRITICALITY
+T1003.001	Credential Dumping	IC-3	3.0	1.0×	Critical
+T1059.001	PowerShell	IC-2	2.0	0.75×	High
+T1082	System Discovery	IC-2	2.0	0.5×	Medium
+T1033	User Discovery	IC-1	1.0	0.25×	Low
+Step 1 — Weighted numerator: (3.0 × 1.0) + (2.0 × 0.75) + (2.0 × 0.5) + (1.0 × 0.25) = 3.0 + 1.5 + 1.0 + 0.25 = 5.75 Step 2 — Sum of ACW weights: 1.0 + 0.75 + 0.5 + 0.25 = 2.5 Step 3 — Weighted_IC: 5.75 / 2.5 = 2.3
+Weighted_IC_normalized = 2.3 / 3.0 = 0.767 (76.7%)
+Analyst Precision (AP)
+
+Analyst Precision measures whether the investigation reached the correct conclusion with minimal error and minimal case fragmentation. AP evaluates analyst efficiency at the investigation layer — not just correctness of a final verdict. It penalizes false investigative conclusions and unnecessary fragmentation of what should have been a single incident.
+
+ANALYST PRECISION FORMULA
+AP = TP / (TP + FP + (Cases − 1))
+TP = Unique malicious behaviors, findings, or incident components correctly included in the final investigation conclusion
+FP = Unique benign, incorrect, or improperly correlated findings included in the final investigation conclusion
+Cases = Number of separate incident cases presented for what should have been one consolidated scenario-level incident
+Scale: 0–1. This formula follows the same operational precision model used for Detection Precision (DP), adapted to investigation outcomes rather than alert outputs.
+WHY CASE CONSOLIDATION IS SCORED
+OPERATION A — FRAGMENTED
+
+10 malicious behaviors correctly identified (TP = 10)
+
+0 false findings (FP = 0)
+
+10 separate incident cases (Cases = 10)
+
+→ 10 analyst investigations, redundant analyst burden
+
+AP = 10 / (10+0+9) = 0.526 (52.6%)
+OPERATION B — CONSOLIDATED
+
+10 malicious behaviors correctly identified (TP = 10)
+
+0 false findings (FP = 0)
+
+1 consolidated incident case (Cases = 1)
+
+→ 1 analyst investigation, full scenario picture
+
+AP = 10 / (10+0+0) = 1.0 (100%)
+
+Both operations identified the same malicious activity. AP correctly reflects that consolidated investigation is operationally superior — it reduces analyst burden without reducing security outcome quality.
+
+Conclusion Speed (CS)
+
+Conclusion Speed measures how quickly the operation reaches a defensible full conclusion after the first automated alert. CS is scored at the scenario level, not the behavior level.
+
+CS begins when the first automated alert associated with the scenario is generated and ends when the investigation reaches a full defensible conclusion. This conclusion may be human-generated, AI-generated, or produced through a mixed workflow — the measurement always reflects elapsed time regardless of who or what produced it.
+
+MTTCONCLUDE FORMULA
+MTTConclude = t_full_conclusion − t_first_automated_alert
+t_full_conclusion = Timestamp when the scenario reached a full defensible conclusion
+t_first_automated_alert = Timestamp of the first automated alert associated with the scenario
+CS SCORING FORMULA
+CS_s = ScoreLookup(MTTConclude_s, ComplexityBand_s)
+CS_normalized = Σ(CS_s) / N_total_scenarios
+If only one scenario is assessed: CS_normalized = CS_s
+MTTCONCLUDE COMPLEXITY BANDS
+
+Scenario-wide investigation time is interpreted relative to incident size. Large multi-stage scenarios require more investigative work than small isolated behaviors. Complexity determines the expected time band for CS scoring.
+
+COMPLEXITY BAND	TECHNIQUES IN SCENARIO
+Small	1–15
+Medium	16–40
+Large	41–80
+Very Large	81+
+CS QUANTITATIVE SPEED SCORING TABLES
+
+Small Scenarios (1–15 techniques)
+
+MTTCONCLUDE RANGE	SCORE	CLASSIFICATION
+≤ 30 min	1.00	Near real-time
+>30–60 min	0.75	Fast
+>60–120 min	0.50	Moderate
+>120–240 min	0.25	Delayed
+>240 min or no conclusion	0.00	No decision / materially late
+
+Medium Scenarios (16–40 techniques)
+
+MTTCONCLUDE RANGE	SCORE	CLASSIFICATION
+≤ 60 min	1.00	Near real-time
+>60–120 min	0.75	Fast
+>120–240 min	0.50	Moderate
+>240–360 min	0.25	Delayed
+>360 min or no conclusion	0.00	No decision / materially late
+
+Large Scenarios (41–80 techniques)
+
+MTTCONCLUDE RANGE	SCORE	CLASSIFICATION
+≤ 120 min	1.00	Near real-time
+>120–300 min	0.75	Fast
+>300–480 min	0.50	Moderate
+>480–720 min	0.25	Delayed
+>720 min or no conclusion	0.00	No decision / materially late
+
+Very Large Scenarios (81+ techniques)
+
+MTTCONCLUDE RANGE	SCORE	CLASSIFICATION
+≤ 180 min	1.00	Near real-time
+>180–360 min	0.75	Fast
+>360–600 min	0.50	Moderate
+>600–900 min	0.25	Delayed
+>900 min or no conclusion	0.00	No decision / materially late
+💡
+
+These thresholds are industry-anchored rather than arbitrary. They reflect commonly cited human analyst investigation benchmarks — approximately 20 minutes for triage and 40 minutes for deeper investigation — while also recognizing emerging evidence that AI-assisted analysts complete escalated investigations materially faster without sacrificing accuracy.
+
+4.5 — IQI Final Calculation
+IQI FINAL FORMULA
+IQI = (Weighted_IC_normalized + AP + CS_normalized) / 3
+EXAMPLE
+Weighted_IC_normalized = 0.833 AP = 0.750 CS_normalized = 0.500 IQI = (0.833 + 0.750 + 0.500) / 3 = 2.083 / 3
+IQI = 0.694 (69.4% Investigation Quality)
+📋
+
+Publication rule: IQI is published separately from TES. TES answers how effectively the evaluated solution detected and protected against adversary activity. IQI answers how effectively the operation investigated the scenario after the first automated alert. This preserves the methodological distinction between platform efficacy and post-alert investigation efficacy.
+
+REFERENCE
+Worked Example: End-to-End Mock Scenario
+
+This example walks through a complete scoring flow using a mock enterprise intrusion scenario. It shows how ACW, DQI, PQI, and IQI are each calculated from the same scenario, while preserving the methodology rule that TES = DQI + PQI and IQI is reported separately.
+
+Mock Scenario
+
+A user is compromised through a spearphishing campaign. The adversary executes PowerShell, attempts credential dumping, and then uses remote services for lateral movement. The evaluation measures:
+
+DETECTION
+How well the platform detected the behaviors
+PROTECTION
+How well the platform protected against those behaviors
+INVESTIGATION
+How well the investigation reached a correct and defensible conclusion
+Step 1 — Assign ATT&CK Chain Weights (ACW)
+
+ACW is assigned according to each technique's importance to the adversary's terminal objective. In this scenario, credential dumping is the most critical step because it directly enables privilege expansion and downstream compromise. PowerShell execution and remote service lateral movement are major enabling steps.
+
+ATT&CK TECHNIQUE	DESCRIPTION	ACW	TIER
+T1059	PowerShell Execution	0.75	High — major enabling step; blocking degrades path significantly
+T1003	Credential Dumping	1.00	Critical — terminal objective; blocking ends the campaign's core purpose
+T1021	Remote Services / Lateral Movement	0.75	High — necessary enabling step; blocking forces major rework
+ACW SUM
+∑ACW = 0.75 + 1.00 + 0.75 = 2.50
+Step 2 — Detection Quality Index (DQI)
+
+DQI measures detection quality through three normalized components: ACW-weighted coverage, precision, and speed.
+
+DQI FORMULA
+DQI = (Weighted_DC_normalized + DP + DS_normalized) / 3
+DETECTION COVERAGE (DC)
+ATT&CK TECHNIQUE	DETECTION RESULT	DC SCORE	ACW
+T1059	Technique-level detection with actionable context	DC-3 3.0	0.75
+T1003	Correlated detection, not fully technique-complete	DC-2 2.0	1.00
+T1021	General suspicious activity only	DC-1 1.0	0.75
+WEIGHTED DC CALCULATION
+Numerator: (3 × 0.75) + (2 × 1.00) + (1 × 0.75) = 2.25 + 2.00 + 0.75 = 5.00 Weighted_DC: 5.00 / 2.50 = 2.00
+Weighted_DC_normalized = 2.00 / 3.0 = 0.667
+DETECTION PRECISION (DP)
+
+TP = 3 correctly surfaced malicious detections · FP = 1 benign or unnecessary detection · Cases = 1 (consolidated into one case)
+
+DP CALCULATION
+DP = TP / (TP + FP + (Cases − 1)) = 3 / (3 + 1 + 0)
+DP = 3 / 4 = 0.750
+DETECTION SPEED (DS)
+ATT&CK TECHNIQUE	MTTD	DS SPEED SCORE
+T1059	4 min	0.95
+T1003	7 min	0.90
+T1021	12 min	0.85
+DS CALCULATION
+DS_normalized = (0.95 + 0.90 + 0.85) / 3 = 2.70 / 3
+DS_normalized = 0.900
+DQI FINAL
+Weighted_DC_normalized = 0.667 DP = 0.750 DS_normalized = 0.900 DQI = (0.667 + 0.750 + 0.900) / 3 = 2.317 / 3
+DQI = 0.772 (77.2% Detection Quality)
+Step 3 — Protection Quality Index (PQI)
+
+PQI measures how well the platform prevented, blocked, or materially disrupted the adversary's path. PQI is calculated separately from DQI and then combined into TES.
+
+PQI FORMULA
+PQI = (Weighted_PC_normalized + PP) / 2
+PROTECTION COVERAGE (PC)
+
+The mock scenario runs as one test: the adversary executes T1059 → T1003 → T1021 in sequence. The platform blocks at T1003 (Stage 1–2, full context). The test ends there — T1021 is never reached and receives no PC score. The PC score and ACW used for weighting are those of the blocking technique only.
+
+TEST	BEHAVIORS IN TEST	BLOCKING TECHNIQUE	BLOCK STAGE	CONTEXT QUALITY	PC SCORE	ACW
+Test 1	T1059 → T1003 → T1021	T1003 Credential Dumping	Stage 1–2	Full context (6/7)	PC-3 3.0	1.0×
+WEIGHTED PC
+Numerator: 3.0 × 1.0 = 3.0 Sum of ACW weights (blocking technique only): 1.0 Weighted_PC: 3.0 / 1.0 = 3.0
+Weighted_PC_normalized = 3.0 / 3.0 = 1.000 (100%)
+PQI FINAL
+Weighted_PC_normalized = 1.000 PP = 1.000 (1 TP, 0 FPs — block on T1003 was clean) PQI = (1.000 + 1.000) / 2 = 2.000 / 2
+PQI = 1.000 (100.0% Protection Quality)
+Step 4 — Total Evaluation Score (TES)
+
+TES is the sum of DQI and PQI. IQI is not part of TES and is reported separately.
+
+TES CALCULATION
+DQI = 0.772 PQI = 1.000 TES = DQI + PQI = 0.772 + 1.000
+TES = 1.772 / 2.0 → 88.6% (expressed as TES / 2.0 × 100)
+Step 5 — Investigation Quality Index (IQI)
+
+IQI measures post-alert investigation quality through coverage, precision, and speed to defensible conclusion. IQI is reported separately from TES.
+
+IQI FORMULA
+IQI = (Weighted_IC_normalized + AP + CS_normalized) / 3
+INVESTIGATION COVERAGE (IC)
+
+IC is scored at the behavior level based on how fully the investigation reconstructed each behavior — including context, evidence, correlation, scope, and disposition.
+
+ATT&CK TECHNIQUE	INVESTIGATION OUTCOME	IC SCORE	ACW
+T1059	Localized investigation only; behavior confirmed but not expanded	IC-2 2.0	0.75
+T1003	Expanded investigation with evidence, scope, and operational impact identified	IC-3 3.0	1.00
+T1021	Correlated investigation; downstream scope partially developed	IC-2 2.0	0.75
+WEIGHTED IC CALCULATION
+Numerator: (2 × 0.75) + (3 × 1.00) + (2 × 0.75) = 1.50 + 3.00 + 1.50 = 6.00 Weighted_IC: 6.00 / 2.50 = 2.40
+Weighted_IC_normalized = 2.40 / 3.0 = 0.800
+ANALYST PRECISION (AP)
+
+TP = 4 correct investigation findings · FP = 1 incorrectly included finding · Cases = 1 (investigation correctly consolidated into one defensible incident)
+
+AP CALCULATION
+AP = TP / (TP + FP + (Cases − 1)) = 4 / (4 + 1 + 0)
+AP = 4 / 5 = 0.800
+CONCLUSION SPEED (CS)
+
+CS measures elapsed time from the first automated alert to full defensible investigation conclusion, scenario-wide.
+
+MTTCONCLUDE
+First automated alert: 09:12 Full defensible conclusion: 15:30 MTTConclude: 6h 18min = 378 minutes
+CS_normalized = 0.50 (Moderate band — scenario complexity determines the applicable threshold table)
+IQI FINAL
+Weighted_IC_normalized = 0.800 AP = 0.800 CS_normalized = 0.500 IQI = (0.800 + 0.800 + 0.500) / 3 = 2.100 / 3
+IQI = 0.700 (70.0% Investigation Quality)
+Final Published Results
+METRIC	SCORE	INTERPRETATION
+DQI	0.772	Strong detection performance; good speed and moderate coverage variance on the critical technique
+PQI	1.000	Perfect protection score - single test, block fired at Stage 1 - 2 on the Critical technique (T1003, 1.0x) with full context
+TES	1.772 / 2.0	High overall platform effectiveness across detection and protection combined
+TES %	88.6%	TES expressed as a percentage of the 2.0 maximum
+IQI (reported separately)	0.700	Solid investigation quality; coverage and precision are strong, time-to-conclusion is moderate
+💡
+
+This presentation keeps detection/protection scoring and investigation scoring separate, while showing how the same scenario produces DQI, PQI, TES, and IQI. ACW is what turns this from flat counting into attack-chain-aware weighting — the DC-2 on T1003 (1.0×) has more scoring impact than the DC-1 on T1021 (0.75×) because the credential dumping step carries greater adversary criticality.
+
+SECTION 7
+Vendor Guidance Summary
+📋
+
+Vendor preparation guidance — what to prioritize, why each scoring element matters, and key scoring principles to internalize — is on the Methodology Overview page → For questions about evaluation preparation or methodology clarifications, contact the MITRE ATT&CK Evaluations team.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences

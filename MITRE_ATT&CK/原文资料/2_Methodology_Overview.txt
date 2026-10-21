@@ -1,0 +1,325 @@
+来源 URL: https://evals.mitre.org/methodology-overview/
+抓取时间: 2026-10-21T07:00:16.017Z
+
+
+==================== 标签页: ALL READERS ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Methodology Overview
+
+ATT&CK® EVALUATIONS · METHODOLOGY
+
+HOW WE TEST.
+HOW WE SCORE.
+WHAT IT MEANS FOR YOU.
+
+ATT&CK® Evaluations test security products against real adversary behaviors in controlled, transparent conditions — with no vendor-controlled demos, no cherry-picked results. This page explains our methodology and the new scoring framework for Enterprise 2026.
+
+ALL READERS
+FOR CUSTOMERS
+FOR VENDORS
+DESIGN PRINCIPLES
+What this methodology is built on
+
+The ATT&CK Evaluations methodology is designed around four core principles — each of which shapes specific decisions in how scenarios are designed, how the test environment is built, how results are collected, and how scores are calculated.
+
+🧠
+Intelligence-Driven Scenarios
+
+Every scenario begins with structured CTI analysis of real adversary campaigns — not theoretical threat models or vendor-proposed scenarios. Adversary selection is driven by prevalence data and enterprise impact, and every technique in scope is mapped to public ATT&CK entries with supporting intelligence.
+
+Adversary selection driven by real-world prevalence
+Technique scope derived from observed campaign TTPs
+All emulation plans published openly in the AEL
+ATT&CK-mapped at sub-technique level
+⚖️
+Behavior Over Signatures
+
+The evaluation tests whether a solution detects what an adversary did — not whether it recognized a specific tool or file hash. This forces solutions to demonstrate genuine behavioral coverage rather than IOC-matching, and reflects how defenders actually need to operate against modern adversaries who change tooling frequently.
+
+No pre-notification of specific tools or techniques
+Detection quality scored on behavioral context, not alert presence
+Living-off-the-land techniques designed to stress signal/noise
+Sub-technique specificity maintained throughout scoring
+🔬
+Methodological Transparency
+
+The complete methodology — scoring formulas, technique scope, test environment specifications, and results data — is published openly. Vendors receive the same documentation customers receive. No proprietary scoring black boxes. No post-hoc result adjustments.
+
+Full methodology specification published pre-evaluation
+Complete telemetry and screenshots published with results
+Scoring components individually calculable from raw data
+Emulation plans open-source under Apache 2.0
+🔄
+CONTINUOUS EVOLUTION
+
+The methodology evolves to reflect how the threat landscape changes. Each cycle incorporates lessons from prior evaluations, feedback from participating vendors and end users, and new adversary tradecraft emerging in the wild. Enterprise 2026 introduces the most significant methodological evolution to date: the Total Evaluation Score (TES) framework and unified Source-of-Action attribution — moving the program from qualitative per-technique results to quantified, comparable performance metrics across all vendor types.
+
+HOW WE TEST
+Four Teams. One structured process.
+
+Each evaluation is produced by four specialized teams. Three work in sequence before execution week — Cyber Threat Intelligence, Red Development, and Detection Engineering — building the scenario, the environment, and the scoring criteria. The Execution Team then runs the evaluation, operating the adversary emulation and coordinating directly with vendors throughout their assigned week. Each phase has defined outputs and handoff criteria. No phase can begin until the prior phase's outputs are validated.
+
+1
+CYBER THREAT INTELLIGENCE TEAM
+Understanding the Adversary
+
+CTI analysis begins with structured review of public threat intelligence: campaign reports, malware analyses, incident disclosures, and government advisories. The team selects adversaries based on prevalence and enterprise impact, then builds adversary profiles that catalog all observed TTPs, tools, infrastructure, and operational patterns. Each technique in scope is mapped to a specific ATT&CK entry — with the intelligence source cited — before the Red team begins operationalization.
+
+PHASE OUTPUTS
+Adversary selection rationale
+ATT&CK technique scope
+Intelligence summary
+Emulation plan (CTI layer)
+2
+RED DEVELOPMENT TEAM
+Becoming the Adversary
+
+The Red Development team takes the CTI-produced adversary profile and operationalizes it into a complete, executable intrusion scenario against the test environment. This involves building or acquiring representative tooling, developing step-by-step procedures for each technique, designing the victim network architecture to support realistic attack chains, and executing rehearsal runs to validate that each step produces expected telemetry. The result is a documented, repeatable adversary emulation plan with machine-readable procedures.
+
+PHASE OUTPUTS
+Executable emulation plan
+Test environment spec
+Step-by-step procedures
+Expected telemetry artifacts
+3
+DETECTION ENGINEERING TEAM
+Defining the Standard
+
+The Detection Engineering team analyzes the adversary footprint produced by the Red Development team to establish what a well-configured defender should be able to detect — and at what quality level. For each technique, the team defines detection criteria: what data sources are required, what behavioral indicators are observable, and what level of context a high-quality alert should contain. These criteria become the scoring rubric used during evaluation execution. The team also defines the false positive test cases run alongside adversary activity.
+
+PHASE OUTPUTS
+Detection criteria per technique
+Alert quality rubric
+False positive test cases
+Scoring thresholds
+4
+EXECUTION TEAM
+Running the Evaluation
+
+The Execution Team operates the evaluation during each vendor's assigned week. Red Team Operators execute the adversary emulation procedures against the live test environment while Threat Hunt Coordinators interface directly with the vendor's technical contacts — managing communication, observing vendor tooling in real time, and documenting results. This team is the vendor's primary point of contact throughout execution week.
+
+EXECUTION WEEK ROLES
+Red Team Operators
+Threat Hunt Coordinators
+Vendor technical liaison
+Live results documentation
+🏗️
+
+Infrastructure Team: A dedicated Infrastructure team designs, builds, and maintains the test ranges that all four phases depend on. Vendors will work directly with this team during Weeks 1–2 of their execution window — environment access, network connectivity, and range-level configuration issues are coordinated through them. The Infrastructure team remains available throughout execution week to support any environment-related needs.
+
+💡
+
+Core philosophy: Behavior over signatures. Quality over quantity. One high-quality, actionable alert that tells an analyst who did what, when, where, and why is more valuable than dozens of low-context notifications — and the DQI scoring framework reflects this directly.
+
+NEW FOR ENTERPRISE 2026
+The Total Evaluation Score (TES)
+
+Enterprise 2026 introduces a unified quantitative scoring framework. The TES combines detection quality and protection quality into a single comparable score — with a modifier that tells you how the score was achieved.
+
+TES = DQI + PQI
+Scale: 0.0 – 2.0 | Or expressed as TES/2.0 = 0–100%
+DQI
+Detection Quality Index — how precisely threats are found and surfaced to analysts (0–1)
+PQI
+Protection Quality Index — how effectively threats are blocked at the right time (0–1)
+Mod
+Who produced the result: (P) Platform · (P/AI) Platform+AI · (S/H) Service/Human · (S/AI) Service/AI · Mixed
+TES
+Combined score. Higher = better combined detection and protection quality
+Why two dimensions?
+
+Detection and protection measure different things. A vendor that detects everything but blocks nothing differs fundamentally from one that blocks early but provides no visibility. TES captures both — without letting strong performance in one mask weakness in the other.
+
+The Source-of-Action modifier (shown in parentheses after the score) tells you who produced the result: automated platform, human analysts, or AI. Same score, different operational meaning.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences
+
+==================== 标签页: FOR CUSTOMERS ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Methodology Overview
+
+ATT&CK® EVALUATIONS · METHODOLOGY
+
+HOW WE TEST.
+HOW WE SCORE.
+WHAT IT MEANS FOR YOU.
+
+ATT&CK® Evaluations test security products against real adversary behaviors in controlled, transparent conditions — with no vendor-controlled demos, no cherry-picked results. This page explains our methodology and the new scoring framework for Enterprise 2026.
+
+ALL READERS
+FOR CUSTOMERS
+FOR VENDORS
+FOR SECURITY LEADERS & BUYERS
+What evaluation results mean for your buying decisions
+
+You're evaluating vendors or interpreting published results. Here's the context you need to make sense of TES scores and what they imply about operational fit for your organization.
+
+📌
+
+Key insight: Two vendors can have the same TES score but require fundamentally different things from your team. Always read the Source-of-Action modifier alongside the score.
+
+THREE QUESTIONS TO ASK ABOUT ANY RESULT
+1️⃣
+What's the TES score?
+
+Higher is better. The combined score reflects detection quality (DQI) and protection quality (PQI). Look at both components — a vendor with high DQI but low PQI is a detection-first solution; the reverse is protection-first.
+
+2️⃣
+What's the modifier?
+
+(P) means your team does the work. (S/H) means human analysts are included. (S/AI) means AI operates as the analyst. Match the modifier to your team's capacity and preference for outsourcing SOC functions.
+
+3️⃣
+What were the gaps?
+
+Published results include per-technique scores. Look at DC-0 and PC-0 results — complete blind spots — especially for techniques relevant to threats in your industry. A high TES with gaps in ransomware-relevant techniques may not fit your risk profile.
+
+WHAT THIS EVALUATION DOES NOT MEASURE
+
+MITRE ATT&CK Evaluations are not a complete product review. The following are outside scope:
+
+OUT OF SCOPE
+Solution cost or pricing models
+Ease of deployment or user interface design
+Customer support quality or response times
+Performance impact on endpoints or networks
+Effectiveness in your specific environment
+💡
+
+Use evaluation results as one signal in a broader vendor evaluation — alongside proof-of-concept testing in your own environment, support quality assessments, and total cost analysis.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences
+
+==================== 标签页: FOR VENDORS ====================
+
+Results
+Participate
+Methodology
+About
+Resources
+Home
+>
+Methodology Overview
+
+ATT&CK® EVALUATIONS · METHODOLOGY
+
+HOW WE TEST.
+HOW WE SCORE.
+WHAT IT MEANS FOR YOU.
+
+ATT&CK® Evaluations test security products against real adversary behaviors in controlled, transparent conditions — with no vendor-controlled demos, no cherry-picked results. This page explains our methodology and the new scoring framework for Enterprise 2026.
+
+ALL READERS
+FOR CUSTOMERS
+FOR VENDORS
+FOR PARTICIPATING VENDORS
+What you need to know to prepare for evaluation
+
+Participation demonstrates confidence in transparency and a commitment to continuous improvement. Here's what the scoring system rewards, what it penalizes, and how to perform well.
+
+WHAT OUR SCORING REWARDS
+WHAT LOWERS YOUR SCORE
+Alert spam — generating many low-context alerts for a single behavior
+Fragmented cases — 50 behaviors in 50 separate cases vs. 1 consolidated incident
+Late blocks — blocking ransomware encryption after credentials and lateral movement already succeeded
+Missing block context — no user identity, no ATT&CK mapping, no remediation guidance
+False positives — blocking legitimate business applications or scripts
+WHAT IMPROVES YOUR SCORE
+Technique-level detection with ATT&CK mapping explicitly identified
+One consolidated, correlated incident case per attack chain
+Early blocking — before or at first critical technique in the chain
+Full block transparency — WHO, WHAT, WHEN, WHERE, HOW, WHY, and Recommended Action
+Precision — correctly allowing all legitimate business activity
+📎
+
+Best practice for detection: Generate one high-quality, consolidated alert per behavior with correlated telemetry accessible in the same workflow. This achieves DC-3 while minimizing analyst burden — and maximizes your Detection Precision score.
+
+KEY SCORING PRINCIPLES TO INTERNALIZE
+PRINCIPLE	WHAT IT MEANS FOR YOUR PRODUCT
+Behavior-level scoring	DC is scored per ATT&CK technique, not per alert. 15 alerts for one technique = one DC score based on best alert quality. Consolidation is rewarded.
+ACW applies to detection only	Attack Chain Weighting applies to Detection Coverage. For protection, Prevention Impact Weighting (PIW) already captures technique criticality through attack-objective positioning — no double-counting.
+Block timing is primary	For protection, when you block determines the PIW multiplier. Blocking at Stage 1 (Critical, 1.0×) is worth twice blocking at Stage 3 (Medium, 0.5×), regardless of context quality.
+Block context is secondary	Within a timing tier, full context (6–7/7 elements) achieves PC-3 or PC-2; partial context achieves PC-2 or PC-1. Context cannot compensate for late timing.
+"Observe before block" is valid	Intentional holds for threat intelligence collection can receive higher PIW credit. Document your strategy and ensure telemetry demonstrates active observation, not a missed detection.
+⚠️
+
+Lower scores identify improvement opportunities for 2027. Scores reflect performance against these specific scenarios — not absolute product quality. The detailed per-technique results published openly are the most actionable data for your engineering roadmap.
+
+Enterprise
+Enterprise 2026
+All Evaluations →
+Past Participants
+Participate in an Evaluation
+Methodology
+Overview
+Scoring Specification
+Citation Policy
+Resources
+About Evaluations
+Our Team
+FAQ
+Blog
+Contact Us
+Emulation Library
+MITRE
+MITRE ATT&CK®
+Terms & Conditions
+Privacy Policy
+Citation Policy
+Cookie Preferences

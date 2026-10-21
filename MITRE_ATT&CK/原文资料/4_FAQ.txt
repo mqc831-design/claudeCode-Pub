@@ -1,0 +1,80 @@
+来源 URL: https://evals.mitre.org/FAQ/
+抓取时间: 2026-10-21T07:02:32.209Z
+说明: 页面为折叠式问答，每次只展开一题；本文件逐题展开后合并。
+
+FREQUENTLY ASKED QUESTIONS
+
+
+## GENERAL
+
+Q: Does participating in ATT&CK Evaluations mean MITRE recommends or endorses my product?
+A: No. Participation does not imply MITRE endorsement, ranking, or certification. MITRE does not recommend or endorse any vendor, product, brand, or service. Evaluation results reflect product performance in a standardized test environment against specific adversary scenarios.
+
+Q: Are ATT&CK Evaluations a competitive ranking?
+A: No. There are no rankings and no declared winners. Every organization has different threat models, infrastructure, team capacity, and operational requirements — a single ranking cannot capture what matters for a specific deployment. The goal is to give organizations the evidence to make their own informed decisions.
+
+Q: How does Enterprise 2026 differ from previous evaluations?
+A: Enterprise 2026 introduces a private evaluation model alongside several methodology advances: (1) participant-specific results are delivered privately, with MITRE publishing aggregated findings and insights from the evaluation cycle; (2) the Total Evaluation Score (TES) provides a unified quantitative framework for assessing detection and protection quality; (3) Source-of-Action modifiers attribute evaluation outcomes to the operational model that produced them — platform automation, human analysts, or AI; and (4) a unified evaluation track brings product, service, and AI-enabled capabilities into a common evaluation framework.
+
+Q: Where can I access historical evaluation results and emulation plans?
+A: All published results are available at evals.mitre.org/results. All emulation plans (step-by-step procedures, ATT&CK mappings, human and machine-readable formats) are published in the ATT&CK Evaluations Library (AEL) under Apache 2.0.
+
+Q: How can my organization use the results in procurement decisions?
+A: Start with the per-technique results for techniques most relevant to your threat model, not just the headline TES score. Compare vendors within the same Source-of-Action modifier category — a (P) platform score and a (S/H) managed service score reflect different operational models and should not be compared directly.
+
+Q: How do I participate in Enterprise 2026?
+A: Registration is now closed. The application deadline was April 30, 2026. See the Enterprise 2026 evaluation overview for full details and requirements. Contact evals@mitre.org with questions.
+
+
+## SCORING & METHODOLOGY
+
+Q: Does a lower TES mean a vendor's product is bad?
+A: Not necessarily. Participating in evaluations demonstrates a vendor's commitment to transparency. TES reflects performance against these specific scenarios, not absolute product quality. Lower scores identify specific opportunities for the vendor to improve their product. Context also matters: a lower TES with a (P) modifier from a pure platform may be the right fit for an organization with a strong internal SOC.
+
+Q: Why does alert volume not improve the score?
+A: Alert volume is not a proxy for detection quality — in fact, excessive alerts increase analyst burden without improving outcomes. Detection Coverage is scored per ATT&CK technique (not per alert), and Detection Precision penalizes fragmented case management. One consolidated, actionable incident is worth more than 50 separate low-context alerts for the same behavior.
+
+Q: What does it mean if a technique is marked N/A?
+A: N/A means the test was not applicable or not conducted for that vendor — for example, testing a Linux-specific technique against a Windows-only solution. N/A does not count as a detection or protection failure. It is excluded from scoring entirely.
+
+Q: As a vendor, can I contest my scores after the evaluation?
+A: Yes. Vendors may submit backend detection logs or documentation during the results review period if, for example, cloud latency affected displayed timestamps versus actual detection times. Evaluators review telemetry logs and vendor documentation during scoring validation. The process is designed to be fair and transparent for all participants.
+
+Q: How does the evaluation handle "observe before block" strategies?
+A: Solutions that intentionally delay blocking to collect threat intelligence (C2 infrastructure, lateral movement patterns) can receive higher Prevention Impact credit if they demonstrate: (1) active observation occurred — not a missed detection; (2) intelligence was collected during the hold; and (3) critical objectives were ultimately prevented. Vendors should document this strategy during evaluation prep.
+
+Q: Are results comparable across different years of evaluation?
+A: Enterprise 2026 introduces a new TES scoring framework that was not used in prior evaluations. Year-over-year comparisons using TES are only valid from 2026 onward. Prior evaluation results are available in our results archive and remain valid for the scenarios they tested, but should not be directly compared to TES scores.
+
+Q: What adversary groups are emulated in Enterprise 2026?
+A: The Enterprise 2026 evaluation reflects the current enterprise threat landscape, where financially motivated intrusions dominate overall activity and state-sponsored operations continue to pose significant risk — particularly in cloud and infrastructure-focused environments. Specific adversary groups and scenario details are published with evaluation results. Visit the full evaluation documentation for scenario specifics.
+
+
+## ENTERPRISE 2026
+
+Q: Can we participate in both Scenario 1 and Scenario 2?
+A: Yes. Scenarios are registered and scored independently. You can participate in Scenario 1 only, Scenario 2 only, or both.
+
+Q: How is "Source-of-Action" determined for our product?
+A: The modifier is determined by who or what produces the detection and protection quality during the evaluation. If your platform generates alerts autonomously, you receive (P). If your service includes human MDR analysts who validate and escalate findings, you receive (S/H). If your service uses AI to perform analyst-equivalent investigation, you receive (S/AI). Hybrid approaches receive Mixed. You declare your intended modifier as part of the vendor tooling declaration process.
+
+Q: Do we need to disable or enable specific product features during testing?
+A: Detection testing is conducted with protections disabled so the full attack chain executes. Protection testing is conducted with protections enabled. You configure your solution according to your typical deployment architecture — the evaluation tests your product as customers would deploy it, not a special evaluation mode.
+
+Q: What happens if our solution blocks during the detection phase?
+A: Protections are disabled during detection testing to ensure the full attack chain runs. If your platform architecture makes it impossible to separate detection from prevention, this should be discussed with the MITRE evaluation team during the technical kickoff process.
+
+Q: Can we use an "observe before block" strategy in protections testing?
+A: Yes, with documentation requirements. Strategic holds — deliberately delaying blocking to collect threat intelligence — may receive higher Prevention Impact Weighting (PIW) credit if supported by active observation telemetry and documented before execution. Undocumented late blocks receive standard lower PIW.
+
+Q: Our product is cloud-based and has UI rendering latency. How does this affect Detection Speed scoring?
+A: Cloud platform latency (UI rendering delays, API polling intervals, regional network latency) is accounted for in scoring. Vendors may submit backend detection timestamps during the draft results review period to demonstrate that actual detection occurred before the UI timestamp. Backend API timestamps take precedence over UI timestamps when submitted. See the Full Methodology Specification for details.
+
+Q: How are results published and can we review before they go public?
+A: Yes. The draft results review window is November 9–20, 2026 — between execution and the December 2026 public publication. During this window you can verify configuration accuracy, submit backend detection timestamp data, and flag technical discrepancies. MITRE does not change scores based on competitive preference — only technical accuracy corrections are accepted.
+
+Q: Can we reference our ATT&CK Evaluations results in marketing?
+A: Yes, subject to the citation policy. All vendors who participate must agree to citation policy compliance as a condition of participation. See the Citation Policy for details.
+
+Q: What is the participation fee?
+A: Participation fees are discussed during the CFP process. Submit the CFP form or schedule a meeting with the ATT&CK Evaluations team to learn more about pricing for your specific participation model.
